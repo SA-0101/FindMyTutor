@@ -1,11 +1,27 @@
 import './App.css'
+import { BrowserRouter,Router,Routes,Route } from 'react-router-dom'
+import LandingPage from './Components/Landing Page/LandingPage'
+
 
 function App() {
 
   return (
-    <div>
-      Assalamoalaikom
-    </div>
+
+    <BrowserRouter>
+
+
+                <LandingPage/> 
+
+                <Routes>
+                  <Route>
+
+                  </Route>
+                </Routes>
+
+
+    
+    </BrowserRouter>
+
   )
 }
 
