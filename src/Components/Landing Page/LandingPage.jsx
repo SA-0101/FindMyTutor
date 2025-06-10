@@ -13,9 +13,17 @@ import Contact from '../Landing Page/Contact'
 function LandingPage() {
   return (
     <div>
+        
         <Navbar/>
         <LandingBanner/>
         <KeyFeature/>
+        <Work/>
+        <Categories/>
+        <TeacherShowcase/>
+        <Achievements/>
+        <About/>
+        <FAQs/>
+        <Contact/>
 
     </div>
   )
