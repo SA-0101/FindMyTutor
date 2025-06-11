@@ -31,11 +31,9 @@ function App() {
                     <Route path='/' element={<LandingPage/>}/>   
                     <Route path='/Register' element={<Register/>}/>
                     <Route path='/Login' element={<Login/>}/>
-                </Routes>
+            
 
-                <Routes>
-
-                  <Route path='Student' element={<Student/>}>
+                  <Route path='/Student' element={<Student/>}>
                   <Route index element={<StudentHome/>}/>
                   <Route path='Category' element={<StudentCategory/>}/>
                   <Route path='NearbyTeachers' element={<NearbyTeachers/>}/>
@@ -45,11 +43,8 @@ function App() {
                   <Route path='Settings' element={<StudentSetting/>}/> 
                   </Route>
 
-                </Routes>
 
-                  <Routes>
-
-                  <Route path='Tutor' element={<Tutor/>}>
+                  <Route path='/Tutor' element={<Tutor/>}>
                   <Route index element={<TutorHome/>}/>
                   <Route path='ProfileOverview' element={<ProfileOverview/>}/>
                   <Route path='Messages' element={<TutorMessages/>}/>

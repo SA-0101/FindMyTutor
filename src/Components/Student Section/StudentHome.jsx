@@ -9,4 +9,4 @@ function StudentHome() {
 }
 
 export default StudentHome
-        Home
+       
