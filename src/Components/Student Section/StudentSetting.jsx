@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Setting() {
+function StudentSetting() {
   return (
     <div>
             Settings
@@ -8,4 +8,4 @@ function Setting() {
   )
 }
 
-export default Setting
+export default StudentSetting

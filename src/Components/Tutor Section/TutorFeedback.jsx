@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Feedback() {
+function TutorFeedback() {
   return (
     <div>
         Feedback
@@ -8,4 +8,4 @@ function Feedback() {
   )
 }
 
-export default Feedback
+export default TutorFeedback

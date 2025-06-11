@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Setting() {
+function TutorSetting() {
   return (
     <div>
         Setting
@@ -8,4 +8,4 @@ function Setting() {
   )
 }
 
-export default Setting
+export default TutorSetting

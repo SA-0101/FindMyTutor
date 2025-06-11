@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Category() {
+function TutorHome() {
   return (
     <div>
-        Category
+            Home
     </div>
   )
 }
 
-export default Category
+export default TutorHome

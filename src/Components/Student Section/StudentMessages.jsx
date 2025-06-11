@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Messages() {
+function StudentMessages() {
   return (
     <div>
             Messages
@@ -8,4 +8,4 @@ function Messages() {
   )
 }
 
-export default Messages
+export default StudentMessages
