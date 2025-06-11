@@ -9,6 +9,7 @@ import Achievements from '../Landing Page/Achievements'
 import About from '../Landing Page/About'
 import FAQs from '../Landing Page/FAQs'
 import Contact from '../Landing Page/Contact'
+import Footer from '../Landing Page/Footer'
 
 function LandingPage() {
   return (
@@ -24,6 +25,7 @@ function LandingPage() {
         <About/>
         <FAQs/>
         <Contact/>
+        <Footer/>
 
     </div>
   )
