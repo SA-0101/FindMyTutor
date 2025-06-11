@@ -18,6 +18,14 @@ import TutorMessages from './Components/Tutor Section/TutorMessages'
 import TutorNotifications from './Components/Tutor Section/TutorNotifications'
 import TutorFeedback from './Components/Tutor Section/TutorFeedback'
 import TutorSetting from './Components/Tutor Section/TutorSetting'
+import admin from '../src/Components/Admin Section/admin'
+import adminHome from '../src/Components/Admin Section/adminHome'
+import adminCategories from '../src/Components/Admin Section/adminCategories'
+import Students from '../src/Components/Admin Section/Students'
+import Tutors from '../src/Components/Admin Section/Tutors'
+import adminNotifications from '../src/Components/Admin Section/adminNotifications'
+import adminSetting from '../src/Components/Admin Section/adminSetting'
+
 
 
 function App() {
@@ -51,6 +59,15 @@ function App() {
                   <Route path='Notifications' element={<TutorNotifications/>}/> 
                   <Route path='Feedback' element={<TutorFeedback/>}/> 
                   <Route path='Settings' element={<TutorSetting/>}/> 
+                  </Route>
+
+                  <Route path='/admin' element={<admin/>}>
+                  <Route index element={<adminHome/>}/>
+                  <Route path='Categories' element={<adminCategories/>}/>
+                  <Route path='Students' element={<Students/>}/>
+                  <Route path='Tutors' element={<Tutors/>}/> 
+                  <Route path='Notifications' element={<adminNotifications/>}/> 
+                  <Route path='Settings' element={<adminSetting/>}/> 
                   </Route>
 
                 </Routes>

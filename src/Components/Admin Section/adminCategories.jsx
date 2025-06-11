@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Categories() {
+function adminCategories() {
   return (
     <div>
             Categories
@@ -8,4 +8,4 @@ function Categories() {
   )
 }
 
-export default Categories
+export default adminCategories

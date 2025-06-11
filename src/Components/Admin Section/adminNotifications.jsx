@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Notifications() {
+function adminNotifications() {
   return (
     <div>
             Notifications
@@ -8,4 +8,4 @@ function Notifications() {
   )
 }
 
-export default Notifications
+export default adminNotifications

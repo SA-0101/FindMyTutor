@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Setting() {
+function adminHome() {
   return (
     <div>
-            Settings
+            Home
     </div>
   )
 }
 
-export default Setting
+export default adminHome
