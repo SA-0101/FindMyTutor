@@ -1,4 +1,3 @@
-import React from 'react'
 import About1 from '../../assets/About1.png'
 import { NavLink } from 'react-router-dom'
 
