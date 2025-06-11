@@ -18,13 +18,13 @@ import TutorMessages from './Components/Tutor Section/TutorMessages'
 import TutorNotifications from './Components/Tutor Section/TutorNotifications'
 import TutorFeedback from './Components/Tutor Section/TutorFeedback'
 import TutorSetting from './Components/Tutor Section/TutorSetting'
-import admin from '../src/Components/Admin Section/admin'
-import adminHome from '../src/Components/Admin Section/adminHome'
-import adminCategories from '../src/Components/Admin Section/adminCategories'
+import Admin from '../src/Components/Admin Section/Admin'
+import AdminHome from './Components/Admin Section/AdminHome'
+import AdminCategories from './Components/Admin Section/AdminCategories'
 import Students from '../src/Components/Admin Section/Students'
 import Tutors from '../src/Components/Admin Section/Tutors'
-import adminNotifications from '../src/Components/Admin Section/adminNotifications'
-import adminSetting from '../src/Components/Admin Section/adminSetting'
+import AdminNotifications from './Components/Admin Section/AdminNotifications'
+import AdminSetting from './Components/Admin Section/AdminSetting'
 
 
 
@@ -61,13 +61,13 @@ function App() {
                   <Route path='Settings' element={<TutorSetting/>}/> 
                   </Route>
 
-                  <Route path='/admin' element={<admin/>}>
-                  <Route index element={<adminHome/>}/>
-                  <Route path='Categories' element={<adminCategories/>}/>
+                  <Route path='/Admin' element={<Admin/>}>
+                  <Route index element={<AdminHome/>}/>
+                  <Route path='Categories' element={<AdminCategories/>}/>
                   <Route path='Students' element={<Students/>}/>
                   <Route path='Tutors' element={<Tutors/>}/> 
-                  <Route path='Notifications' element={<adminNotifications/>}/> 
-                  <Route path='Settings' element={<adminSetting/>}/> 
+                  <Route path='Notifications' element={<AdminNotifications/>}/> 
+                  <Route path='Settings' element={<AdminSetting/>}/> 
                   </Route>
 
                 </Routes>

@@ -1,11 +1,13 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
-function admin() {
+function Admin() {
   return (
     <div>
             components will render here
+            <Outlet/>
     </div>
   )
 }
 
-export default admin
+export default Admin

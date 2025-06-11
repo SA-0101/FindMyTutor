@@ -1,6 +1,6 @@
 import React from 'react'
 
-function adminSetting() {
+function AdminSetting() {
   return (
     <div>
             Settings
@@ -8,4 +8,4 @@ function adminSetting() {
   )
 }
 
-export default adminSetting
+export default AdminSetting
