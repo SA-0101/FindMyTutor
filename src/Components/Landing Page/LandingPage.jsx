@@ -13,7 +13,7 @@ import Footer from '../Landing Page/Footer'
 
 function LandingPage() {
   return (
-    <div>
+    <div className='w-full'>
         
         <Navbar/>
         <LandingBanner/>
