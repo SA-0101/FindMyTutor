@@ -1,4 +1,3 @@
-import React from 'react'
 import profile from '../../assets/Time management-amico 2.png'
 import signup from '../../assets/Location search-amico 2.png'
 import connect from '../../assets/Education-amico 12.png'

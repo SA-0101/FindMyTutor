@@ -1,4 +1,3 @@
-import React from 'react'
 import { FAQ } from '../../Data/Data'
 
 function FAQs() {

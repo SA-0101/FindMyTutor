@@ -1,4 +1,3 @@
-import React from 'react'
 import { Popular_Catogorie } from '../../Data/Data'
 
 function Categories() {

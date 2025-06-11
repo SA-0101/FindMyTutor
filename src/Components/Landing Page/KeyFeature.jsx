@@ -1,4 +1,3 @@
-import React from 'react'
 import degree from '../../assets/graduation-hat.png'
 import learning from '../../assets/book.png'
 import scheduling from '../../assets/documents.png'

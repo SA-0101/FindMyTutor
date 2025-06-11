@@ -1,4 +1,3 @@
-import React from 'react'
 import { Popular_Teachers } from '../../Data/Data'
 
 function TeacherShowcase() {

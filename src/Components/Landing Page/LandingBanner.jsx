@@ -1,4 +1,3 @@
-import React from 'react'
 import LandingPageImage from '../../assets/Tutor.png'
 
 function LandingBanner() {

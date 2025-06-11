@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../Landing Page/Navbar'
 import LandingBanner from '../Landing Page/LandingBanner'
 import KeyFeature from '../Landing Page/KeyFeature'
