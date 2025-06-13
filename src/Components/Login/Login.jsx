@@ -41,10 +41,10 @@ function Login() {
         });
 
         const data = await response.json();
-        console.log(data);
 
         if (response.ok) {
           alert('Student Login Successfully!');
+          localStorage.getItem('user',data)
           navigate("/Student")
 
         } else {
@@ -70,10 +70,10 @@ function Login() {
         });
 
         const data = await response.json();
-        console.log(data);
-
+        
         if (response.ok) {
           alert('Tutor Login Successfully!');
+          localStorage.getItem('user',data)
           navigate("/Tutor")
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -97,10 +97,10 @@ function Login() {
         });
 
         const data = await response.json();
-        console.log(data);
 
         if (response.ok) {
           alert('Admin Login Successfully!');
+          localStorage.getItem('user',data)
           navigate("/Admin")
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -156,7 +156,7 @@ function Login() {
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <Mail className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Email Address' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setEmail(e.target.value)}}/>
+                    <input type="email" placeholder='Email Address' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setEmail(e.target.value)}}/>
               </div>
                 
                <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
