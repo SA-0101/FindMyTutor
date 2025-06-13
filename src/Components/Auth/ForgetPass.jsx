@@ -13,11 +13,12 @@ function ForgetPass() {
     const [adminbg,setAdminbg]=useState("white")
 
     const [email,setEmail]=useState("")
-
+  console.log(email)
     const [studentapi,setStudentapi]=useState(true)
     const [tutorapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
-    
+    console.log(studentapi)
+
     const loginData={
 
       email:email,
@@ -30,7 +31,7 @@ function ForgetPass() {
     if (studentapi === true) {
 
       try {
-        const response = await fetch(`${BASE_URL}/studentForgotPass`, {
+        const response = await fetch(`${BASE_URL}/studentFogotPass`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -43,7 +44,7 @@ function ForgetPass() {
 
         if (response.ok) {
           alert('code send Successfully!!');
-          localStorage.getItem('user',JSON.stringify(data))
+          // localStorage.getItem('user',JSON.stringify(data))
           navigate("/Otpver")
 
         } else {
@@ -73,7 +74,7 @@ function ForgetPass() {
         
         if (response.ok) {
           alert('code send Successfully!!');
-          localStorage.getItem('user',JSON.stringify(data))
+          // localStorage.getItem('user',JSON.stringify(data))
           navigate("/Otpver")
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -101,7 +102,7 @@ function ForgetPass() {
 
         if (response.ok) {
           alert('code send Successfully!');
-          localStorage.getItem('user',JSON.stringify(data))
+          // localStorage.getItem('user',JSON.stringify(data))
           navigate("/Otpver")
         } else {
           alert(data.message || 'Something went wrong during registration.');
