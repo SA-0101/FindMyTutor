@@ -6,7 +6,6 @@ function Register() {
   
     const [studentbg,setStudentbg]=useState('bg-blue-100')
     const [teacherbg,setTeacherbg]=useState("white")
-    const [adminbg,setAdminbg]=useState("white")
 
     const [username,setUsename]=useState("")
     const [email,setEmail]=useState("")
@@ -15,7 +14,13 @@ function Register() {
 
     const [studentapi,setStudentapi]=useState(true)
     const [teacherapi,setTeacherapi]=useState(false)
-    const [adminapi,setAdminapi]=useState(false)
+    
+    const registrationData={
+      name:username,
+      email:email,
+      password:password,
+      confpass:confirmpass
+    }
 
     return (
         <div className='flex flex-col justify-between gap-4 py-5 items-center overflow-y-hidden  max-w-full min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
@@ -34,11 +39,11 @@ function Register() {
               <div className='w-full flex flex-col gap-2 py-3'>
                 <h1 className='flex flex-col font-semibold'>I am a:</h1>
                   <div className='w-full flex basis-1 gap-4 flex-wrap justify-center  items-center'>
-                    <div className={`flex flex-col items-center rounded-lg ${studentbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setStudentbg('bg-blue-100');setTeacherbg('bg-white');setAdminbg('bg-white');setTeacherapi(false);setStudentapi(true);setAdminapi(false)}}>
+                    <div className={`flex flex-col items-center rounded-lg ${studentbg} px-12 py-5 border-2 border-gray-200`} onClick={() => {setStudentbg('bg-blue-100');setTeacherbg('bg-white');setTeacherapi(false);setStudentapi(true)}}>
                       <BookOpen className="w-5 h-5" />
                       <h1>Student</h1>
                     </div>
-                   <div className={`flex flex-col items-center rounded-lg ${teacherbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setTeacherbg('bg-blue-100');setAdminbg('bg-white');setStudentbg('bg-white');setTeacherapi(true);setStudentapi(false);setAdminapi(false)}}>
+                   <div className={`flex flex-col items-center rounded-lg ${teacherbg} px-12 py-5 border-2 border-gray-200`} onClick={() => {setTeacherbg('bg-blue-100');setStudentbg('bg-white');setTeacherapi(true);setStudentapi(false)}}>
                       <Users className="w-5 h-5" />
                       <h1>Teacher</h1>
                     </div>
@@ -75,7 +80,7 @@ function Register() {
                 <div className='py-3'>
                   <label htmlFor="" className='text-gray-600'>Already have an account? </label>
                 
-                 <NavLink to="/Register">
+                 <NavLink to="/Login">
                       <button className='text-blue-600 font-semibold cursor-pointer'>Sign In</button>
                  </NavLink>
 

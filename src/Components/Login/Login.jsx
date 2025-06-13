@@ -15,6 +15,12 @@ function Login() {
     const [teacherapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
     
+    const loginData={
+
+      email:email,
+      password:password,
+
+    }
 
     //   const navigate=useNavigate()
     //   const [email,setEmail]=useState("")
