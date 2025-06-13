@@ -4,6 +4,10 @@ import { GraduationCap,Mail,Lock,BookOpen,Users,Shield,} from "lucide-react";
 
 function Login() {
   
+     const BASE_URL="http://localhost:8000/tutor"
+    
+     const navigate=useNavigate()
+
     const [studentbg,setStudentbg]=useState('bg-blue-100')
     const [teacherbg,setTeacherbg]=useState("white")
     const [adminbg,setAdminbg]=useState("white")
@@ -12,7 +16,7 @@ function Login() {
     const [password,setPassword]=useState("")
 
     const [studentapi,setStudentapi]=useState(true)
-    const [teacherapi,setTeacherapi]=useState(false)
+    const [tutorapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
     
     const loginData={
@@ -22,57 +26,99 @@ function Login() {
 
     }
 
-    //   const navigate=useNavigate()
-    //   const [email,setEmail]=useState("")
-    //   const [password,setPassword]=useState("")
-    //   const [role,setRole]=useState("Student")
+     const loginUser =async ()=> {
 
-    //   const handleLogin = async (e) => {
-    //     e.preventDefault();
 
-    //     const studentData={
+    if (studentapi === true) {
 
-    //       email:email,
-    //       password:password,
-        
-    //     }
+      try {
+        const response = await fetch(`${BASE_URL}/studentLogin`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(loginData)
+        });
 
-    //     const apiUrl =
-    // role === "Student"
-    //   ? 'https://find-my-tutor-omega.vercel.app/api/v1/userAuth/login'
-    //   : 'https://find-my-tutor-omega.vercel.app/api/v1/vendorAuth/login';
-    
-    //     try {
-    //       const response = await fetch(apiUrl, {
-    //         method: 'POST',
-    //         headers: {
-    //           'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(studentData)
-    //       });
-    
-    //       const data = await response.json();
-    
-    //       if (response.ok) {
-    //         alert('Login successful!');
-    //         {
-    //           role==="Student"? navigate("/Main"): navigate("/tutorhome")
-    //           localStorage.setItem("useremail",email);
-    //         console.log(localStorage.getItem("useremail"))
-    //         }
-    //         console.log('User data:', data);
-    //         // Store token (optional):
-            
-    //       } else {
-    //         alert(data.message || 'Login failed!');
-    //       }
-    
-    //     } catch (error) {
-    //       console.error('Login error:', error);
-    //       setMessage('Network error or server is down');
-    //     }
-    //   };
-  
+        const data = await response.json();
+        console.log(data);
+
+        if (response.ok) {
+          alert('Student Login Successfully!');
+          navigate("/Student")
+
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
+
+    }
+
+    else if(tutorapi===true) {
+
+      try {
+        const response = await fetch(`${BASE_URL}/teacherLogin`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(loginData)
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        if (response.ok) {
+          alert('Tutor Login Successfully!');
+          navigate("/Tutor")
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
+
+    }
+    else{
+
+      try {
+        const response = await fetch(`${BASE_URL}/adminLogin`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(loginData)
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        if (response.ok) {
+          alert('Admin Login Successfully!');
+          navigate("/Admin")
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
+
+    }
+
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    loginUser();
+  }
 
     return (
         <div className='flex flex-col justify-between gap-4 py-5 items-center overflow-y-hidden  max-w-full min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
@@ -106,7 +152,7 @@ function Login() {
                   </div>
               </div>
 
-              <form action="" className='flex flex-col w-full py-3 gap-5 items-center'>
+              <form action="" onClick={handleSubmit} className='flex flex-col w-full py-3 gap-5 items-center'>
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <Mail className="h-5 w-5 text-gray-400" />
@@ -118,7 +164,7 @@ function Login() {
                     <input type="text" placeholder='Password' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setPassword(e.target.value)}}/>
               </div>
 
-                <button className='bg-blue-600 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Sign In as Student</button>
+                <button type='submit' className='bg-blue-600 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Sign In</button>
               </form>
 
               <button className='py-3 text-red-500 font-semibold cursor-pointer'>Forgot your Password?</button>

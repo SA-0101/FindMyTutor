@@ -1,11 +1,13 @@
 import { useNavigate,NavLink } from 'react-router-dom'
-import { useEffect,useState } from 'react';
+import {useState } from 'react';
 import { GraduationCap,Mail,Lock,BookOpen,Users,Shield,} from "lucide-react";
 
 function Register() {
 
    const BASE_URL="http://localhost:8000/tutor"
   
+    const navigate=useNavigate()
+
     const [studentbg,setStudentbg]=useState('bg-blue-100')
     const [teacherbg,setTeacherbg]=useState("white")
 
@@ -50,7 +52,7 @@ function Register() {
 
         if (response.ok) {
           alert('Student Register Successfully!');
-          navigate("/Student")
+          navigate("/")
 
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -79,7 +81,7 @@ function Register() {
 
         if (response.ok) {
           alert('Tutor Register Successfully!');
-          navigate("/Tutor")
+          navigate("/")
         } else {
           alert(data.message || 'Something went wrong during registration.');
         }
