@@ -3,7 +3,7 @@ import { BrowserRouter,Router,Routes,Route } from 'react-router-dom'
 import LandingPage from '../src/Components/Landing Page/LandingPage'
 import Register from './Components/Auth/Register'
 import Login from './Components/Auth/Login'
-import ForgetPass from '../src/Components/Auth/ForgotPass'
+import ForgetPass from './Components/Auth/ForgetPass'
 import OtpVerification from '../src/Components/Auth/OtpVerification'
 import ResetPass from '../src/Components/Auth/ResetPass'
 
