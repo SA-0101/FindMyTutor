@@ -13,13 +13,13 @@ function ForgetPass() {
     const [adminbg,setAdminbg]=useState("white")
 
     const [email,setEmail]=useState("")
-    
+
     const [studentapi,setStudentapi]=useState(true)
     const [tutorapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
     console.log(studentapi)
 
-    const loginData={
+    const ForgetPassdata={
 
       email:email,
 
@@ -36,7 +36,7 @@ function ForgetPass() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(loginData)
+          body: JSON.stringify(ForgetPassdata)
         });
 
         const data = await response.json();
@@ -65,7 +65,7 @@ function ForgetPass() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(loginData)
+          body: JSON.stringify(ForgetPassdata)
         });
 
         const data = await response.json();
@@ -92,7 +92,7 @@ function ForgetPass() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(loginData)
+          body: JSON.stringify(ForgetPassdata)
         });
 
         const data = await response.json();

@@ -12,15 +12,15 @@ function OtpVerification() {
     const [teacherbg,setTeacherbg]=useState("white")
     const [adminbg,setAdminbg]=useState("white")
 
-    const [email,setEmail]=useState("")
+    const [otp,setOtp]=useState("")
 
     const [studentapi,setStudentapi]=useState(true)
     const [tutorapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
 
-    const loginData={
+    const otpData={
 
-      email:email,
+      otp:otp,
 
     }
 
@@ -30,12 +30,12 @@ function OtpVerification() {
     if (studentapi === true) {
 
       try {
-        const response = await fetch(`${BASE_URL}/studentFogotPass`, {
+        const response = await fetch(`${BASE_URL}/studentOtpVerification`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(loginData)
+          body: JSON.stringify(otpData)
         });
 
         const data = await response.json();
@@ -59,12 +59,12 @@ function OtpVerification() {
     else if(tutorapi===true) {
 
       try {
-        const response = await fetch(`${BASE_URL}/teacherForgotPass`, {
+        const response = await fetch(`${BASE_URL}/teacherOtpVerification`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(loginData)
+          body: JSON.stringify(otpData)
         });
 
         const data = await response.json();
@@ -86,12 +86,12 @@ function OtpVerification() {
     else{
 
       try {
-        const response = await fetch(`${BASE_URL}/adminForgotPass`, {
+        const response = await fetch(`${BASE_URL}/adminOtpVerification`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(loginData)
+          body: JSON.stringify(otpData)
         });
 
         const data = await response.json();
@@ -117,6 +117,8 @@ function OtpVerification() {
     e.preventDefault();
     Forgetpassword();
   }
+
+  
 
     return (
         <div className='flex flex-col justify-between gap-4 py-5 items-center overflow-y-hidden  max-w-full min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
@@ -161,12 +163,16 @@ function OtpVerification() {
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <KeyRound className="h-5 w-5 text-gray-400" />
-                    <input type="number" placeholder=' Enter 6 digit OTP' className='w-full outline-0 px-8 py-3' onChange={(e)=>{setEmail(e.target.value)}}/>
+                    <input type="number" placeholder=' Enter 6 digit OTP' className='w-full outline-0 px-8 py-3' onChange={(e)=>{setOtp(e.target.value)}}/>
               </div>
 
-                <button type='submit' className='bg-orange-500 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-orange-600'>Verify Code</button>
+                <button type='submit' className='bg-green-500 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-green-600'>Verify Code</button>
               </form>
              
+             <div className='flex justify-center items-center gap-1'>
+                    <label htmlFor="">Didn't receive the code?</label>
+                   <button className='py-3 text-green-500 font-semibold cursor-pointer'>Resend OTP</button>
+              </div>
 
                 <hr className='border-s border-gray-300 w-full'/>
                 <div className='py-3'>
