@@ -1,4 +1,4 @@
-import { useNavigate,NavLink } from 'react-router-dom'
+import {useNavigate,NavLink } from 'react-router-dom'
 import { useState } from 'react';
 import { GraduationCap,Mail,KeyRound,BookOpen,Users,Shield,} from "lucide-react";
 
@@ -7,7 +7,9 @@ function OtpVerification() {
      const BASE_URL="http://localhost:8000/tutor"
 
      const navigate=useNavigate()
-
+     const email = localStorage.getItem("userEmail");
+    
+    console.log(email)
     const [studentbg,setStudentbg]=useState('bg-blue-100')
     const [teacherbg,setTeacherbg]=useState("white")
     const [adminbg,setAdminbg]=useState("white")
@@ -24,13 +26,17 @@ function OtpVerification() {
 
     }
 
-     const Forgetpassword =async ()=> {
+    const ForgetPassdata={
+      email:email,
+    }
+
+     const OtpVer =async ()=> {
 
 
     if (studentapi === true) {
 
       try {
-        const response = await fetch(`${BASE_URL}/studentOtpVerification`, {
+        const response = await fetch(`${BASE_URL}/studentOtpVerificaion`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -39,11 +45,11 @@ function OtpVerification() {
         });
 
         const data = await response.json();
-
+        console.log(otp)
         if (response.ok) {
-          alert('code send Successfully!!');
+          alert('Valid OTP');
           // localStorage.getItem('user',JSON.stringify(data))
-          navigate("/Otpver")
+          navigate("/Resetpass")
 
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -70,9 +76,9 @@ function OtpVerification() {
         const data = await response.json();
         
         if (response.ok) {
-          alert('code send Successfully!!');
+          alert('Valid OTP');
           // localStorage.getItem('user',JSON.stringify(data))
-          navigate("/Otpver")
+          navigate("/Resetpass")
         } else {
           alert(data.message || 'Something went wrong during registration.');
         }
@@ -95,6 +101,100 @@ function OtpVerification() {
         });
 
         const data = await response.json();
+        
+        if (response.ok) {
+          alert('Valid OTP');
+          // localStorage.getItem('user',JSON.stringify(data))
+          navigate("/Resetpass")
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
+
+    }
+
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    OtpVer();
+  }
+
+  const Forgetpassword =async ()=> {
+
+
+    if (studentapi === true) {
+
+      try {
+        const response = await fetch(`${BASE_URL}/studentFogotPass`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(ForgetPassdata)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert('code send Successfully!!');
+          // localStorage.getItem('user',JSON.stringify(data))
+          navigate("/Otpver")
+
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
+
+    }
+
+    else if(tutorapi===true) {
+
+      try {
+        const response = await fetch(`${BASE_URL}/teacherForgotPass`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(ForgetPassdata)
+        });
+
+        const data = await response.json();
+        
+        if (response.ok) {
+          alert('code send Successfully!!');
+          // localStorage.getItem('user',JSON.stringify(data))
+          navigate("/Otpver")
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
+
+    }
+    else{
+
+      try {
+        const response = await fetch(`${BASE_URL}/adminForgotPass`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(ForgetPassdata)
+        });
+
+        const data = await response.json();
 
         if (response.ok) {
           alert('code send Successfully!');
@@ -111,11 +211,6 @@ function OtpVerification() {
 
     }
 
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    Forgetpassword();
   }
 
 
@@ -171,7 +266,7 @@ function OtpVerification() {
              
              <div className='flex justify-center items-center gap-1'>
                     <label htmlFor="">Didn't receive the code?</label>
-                   <button className='py-3 text-green-500 font-semibold cursor-pointer'>Resend OTP</button>
+                   <button className='py-3 text-green-500 font-semibold cursor-pointer' onClick={()=>{Forgetpassword()}}>Resend OTP</button>
               </div>
 
                 <hr className='border-s border-gray-300 w-full'/>

@@ -43,7 +43,7 @@ function ForgetPass() {
 
         if (response.ok) {
           alert('code send Successfully!!');
-          // localStorage.getItem('user',JSON.stringify(data))
+          localStorage.setItem("userEmail", email);
           navigate("/Otpver")
 
         } else {
