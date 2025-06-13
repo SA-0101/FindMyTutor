@@ -44,7 +44,7 @@ function Login() {
 
         if (response.ok) {
           alert('Student Login Successfully!');
-          localStorage.getItem('user',data)
+          localStorage.getItem('user',JSON.stringify(data))
           navigate("/Student")
 
         } else {

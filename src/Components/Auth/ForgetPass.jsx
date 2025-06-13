@@ -5,7 +5,7 @@ import { GraduationCap,Mail,Lock,BookOpen,Users,Shield,} from "lucide-react";
 function ForgetPass() {
   
      const BASE_URL="http://localhost:8000/tutor"
-    
+
      const navigate=useNavigate()
 
     const [studentbg,setStudentbg]=useState('bg-blue-100')
@@ -33,7 +33,8 @@ function ForgetPass() {
         const response = await fetch(`${BASE_URL}/studentForgotPass`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            //  Authorization: `Bearer ${token}`
           },
           body: JSON.stringify(loginData)
         });
@@ -42,7 +43,7 @@ function ForgetPass() {
 
         if (response.ok) {
           alert('code send Successfully!!');
-          localStorage.getItem('user',data)
+          localStorage.getItem('user',JSON.stringify(data))
           navigate("/Otpver")
 
         } else {
@@ -62,7 +63,8 @@ function ForgetPass() {
         const response = await fetch(`${BASE_URL}/teacherForgotPass`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            //  Authorization: `Bearer ${token}`
           },
           body: JSON.stringify(loginData)
         });
@@ -71,7 +73,7 @@ function ForgetPass() {
         
         if (response.ok) {
           alert('code send Successfully!!');
-          localStorage.getItem('user',data)
+          localStorage.getItem('user',JSON.stringify(data))
           navigate("/Otpver")
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -89,7 +91,8 @@ function ForgetPass() {
         const response = await fetch(`${BASE_URL}/adminForgotPass`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            //  Authorization: `Bearer ${token}`
           },
           body: JSON.stringify(loginData)
         });
@@ -98,7 +101,7 @@ function ForgetPass() {
 
         if (response.ok) {
           alert('code send Successfully!');
-          localStorage.getItem('user',data)
+          localStorage.getItem('user',JSON.stringify(data))
           navigate("/Otpver")
         } else {
           alert(data.message || 'Something went wrong during registration.');
