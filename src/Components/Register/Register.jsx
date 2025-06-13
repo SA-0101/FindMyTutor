@@ -8,6 +8,11 @@ function Register() {
     const [teacherbg,setTeacherbg]=useState("white")
     const [adminbg,setAdminbg]=useState("white")
 
+    const [username,setUsename]=useState("")
+    const [email,setEmail]=useState("")
+    const [password,setPassword]=useState("")
+    const [confirmpass,setConfirmpass]=useState("")
+
     const [studentapi,setStudentapi]=useState(true)
     const [teacherapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
@@ -44,41 +49,40 @@ function Register() {
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <Users className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Full Name' className='w-full outline-0 px-3 py-3'/>
+                    <input type="text" placeholder='Full Name' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setUsename(e.target.value)}}/>
               </div>
 
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <Mail className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Email Address' className='w-full outline-0 px-3 py-3'/>
+                    <input type="text" placeholder='Email Address' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setEmail(e.target.value)}}/>
               </div>
                 
                <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                      <Lock className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Password' className='w-full outline-0 px-3 py-3'/>
+                    <input type="text" placeholder='Password' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setPassword(e.target.value)}}/>
               </div>
 
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                      <Lock className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Conform Password' className='w-full outline-0 px-3 py-3'/>
+                    <input type="text" placeholder='Conform Password' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setConfirmpass(e.target.value)}}/>
               </div>
 
                 <button className='bg-blue-600 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Create Account</button>
               </form>
 
-              <button className='py-3 text-red-500 font-semibold cursor-pointer'>Forgot your Password?</button>
 
                 <hr className='border-s border-gray-300 w-full'/>
                 <div className='py-3'>
-                  <label htmlFor="" className='text-gray-600'>Dont have an account? </label>
+                  <label htmlFor="" className='text-gray-600'>Already have an account? </label>
                 
                  <NavLink to="/Register">
-                      <button className='text-blue-600 font-semibold cursor-pointer'>Create Account</button>
+                      <button className='text-blue-600 font-semibold cursor-pointer'>Sign In</button>
                  </NavLink>
 
                 </div>
             </div>
             
-            <h1 className='text-gray-500'>Secure login to your learning dashboard</h1>
+            <h1 className='text-gray-500'>By registering, you agree to connect and learn together </h1>
 
       
     </div>

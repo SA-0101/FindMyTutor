@@ -8,6 +8,9 @@ function Login() {
     const [teacherbg,setTeacherbg]=useState("white")
     const [adminbg,setAdminbg]=useState("white")
 
+    const [email,setEmail]=useState("")
+    const [password,setPassword]=useState("")
+
     const [studentapi,setStudentapi]=useState(true)
     const [teacherapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
@@ -101,12 +104,12 @@ function Login() {
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <Mail className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Email Address' className='w-full outline-0 px-3 py-3'/>
+                    <input type="text" placeholder='Email Address' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setEmail(e.target.value)}}/>
               </div>
                 
                <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                      <Lock className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Password' className='w-full outline-0 px-3 py-3'/>
+                    <input type="text" placeholder='Password' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setPassword(e.target.value)}}/>
               </div>
 
                 <button className='bg-blue-600 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Sign In as Student</button>
