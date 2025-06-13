@@ -118,7 +118,7 @@ function OtpVerification() {
     Forgetpassword();
   }
 
-  
+
 
     return (
         <div className='flex flex-col justify-between gap-4 py-5 items-center overflow-y-hidden  max-w-full min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
@@ -163,7 +163,7 @@ function OtpVerification() {
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <KeyRound className="h-5 w-5 text-gray-400" />
-                    <input type="number" placeholder=' Enter 6 digit OTP' className='w-full outline-0 px-8 py-3' onChange={(e)=>{setOtp(e.target.value)}}/>
+                    <input type="number" placeholder=' Enter 6 digit OTP' className='w-full outline-0 px-8 py-3' onChange={(e)=>{setOtp(Number(e.target.value))}}/>
               </div>
 
                 <button type='submit' className='bg-green-500 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-green-600'>Verify Code</button>
