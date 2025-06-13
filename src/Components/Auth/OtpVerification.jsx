@@ -9,7 +9,6 @@ function OtpVerification() {
      const navigate=useNavigate()
      const email = localStorage.getItem("userEmail");
     
-    console.log(email)
     const [studentbg,setStudentbg]=useState('bg-blue-100')
     const [teacherbg,setTeacherbg]=useState("white")
     const [adminbg,setAdminbg]=useState("white")
@@ -48,7 +47,7 @@ function OtpVerification() {
         console.log(otp)
         if (response.ok) {
           alert('Valid OTP');
-          // localStorage.getItem('user',JSON.stringify(data))
+          localStorage.setItem("userotp", otp);
           navigate("/Resetpass")
 
         } else {
@@ -77,7 +76,7 @@ function OtpVerification() {
         
         if (response.ok) {
           alert('Valid OTP');
-          // localStorage.getItem('user',JSON.stringify(data))
+          localStorage.setItem("userotp", otp);
           navigate("/Resetpass")
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -104,7 +103,7 @@ function OtpVerification() {
         
         if (response.ok) {
           alert('Valid OTP');
-          // localStorage.getItem('user',JSON.stringify(data))
+         localStorage.setItem("userotp", otp);
           navigate("/Resetpass")
         } else {
           alert(data.message || 'Something went wrong during registration.');
