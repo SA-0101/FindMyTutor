@@ -3,7 +3,7 @@ import { BrowserRouter,Router,Routes,Route } from 'react-router-dom'
 import LandingPage from '../src/Components/Landing Page/LandingPage'
 import Register from './Components/Auth/Register'
 import Login from './Components/Auth/Login'
-import ForgotPass from '../src/Components/Auth/ForgotPass'
+import ForgetPass from '../src/Components/Auth/ForgotPass'
 import OtpVerification from '../src/Components/Auth/OtpVerification'
 import ResetPass from '../src/Components/Auth/ResetPass'
 
@@ -46,7 +46,7 @@ function App() {
                     <Route path='/' element={<LandingPage/>}/>   
                     <Route path='/Register' element={<Register/>}/>
                     <Route path='/Login' element={<Login/>}/>
-                    <Route path='/Forgetpass' element={<ForgotPass/>}/>
+                    <Route path='/Forgetpass' element={<ForgetPass/>}/>
                     <Route path='/Otpver' element={<OtpVerification/>}/>
                     <Route path='/Resetpass' element={<ResetPass/>}/>                    
             

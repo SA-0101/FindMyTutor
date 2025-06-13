@@ -167,7 +167,10 @@ function Login() {
                 <button type='submit' className='bg-blue-600 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Sign In</button>
               </form>
 
-              <button className='py-3 text-red-500 font-semibold cursor-pointer'>Forgot your Password?</button>
+              <NavLink to="/ForgetPass">
+                       <button className='py-3 text-red-500 font-semibold cursor-pointer'>Forgot your Password?</button>
+              </NavLink>
+             
 
                 <hr className='border-s border-gray-300 w-full'/>
                 <div className='py-3'>
