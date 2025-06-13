@@ -137,22 +137,22 @@ function Login() {
               <div className='w-full flex flex-col gap-2 py-3'>
                 <h1 className='flex flex-col font-semibold'>Sign in as:</h1>
                   <div className='w-full flex basis-1 gap-4 flex-wrap justify-center  items-center'>
-                    <div className={`flex flex-col items-center rounded-lg ${studentbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setStudentbg('bg-blue-100');setTeacherbg('bg-white');setAdminbg('bg-white');setTeacherapi(false);setStudentapi(true);setAdminapi(false)}}>
+                    <div className={`flex flex-col items-center cursor-pointer hover:scale-[103%] rounded-lg ${studentbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setStudentbg('bg-blue-100');setTeacherbg('bg-white');setAdminbg('bg-white');setTeacherapi(false);setStudentapi(true);setAdminapi(false)}}>
                       <BookOpen className="w-5 h-5" />
                       <h1>Student</h1>
                     </div>
-                   <div className={`flex flex-col items-center rounded-lg ${teacherbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setTeacherbg('bg-blue-100');setAdminbg('bg-white');setStudentbg('bg-white');setTeacherapi(true);setStudentapi(false);setAdminapi(false)}}>
+                   <div className={`flex flex-col items-center cursor-pointer hover:scale-[103%] rounded-lg ${teacherbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setTeacherbg('bg-blue-100');setAdminbg('bg-white');setStudentbg('bg-white');setTeacherapi(true);setStudentapi(false);setAdminapi(false)}}>
                       <Users className="w-5 h-5" />
                       <h1>Teacher</h1>
                     </div>
-                    <div className={`flex flex-col items-center rounded-lg ${adminbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setAdminbg('bg-blue-100');setTeacherbg('bg-white');setStudentbg('bg-white');setTeacherapi(false);setStudentapi(false);setAdminapi(true)}}>
+                    <div className={`flex flex-col items-center cursor-pointer hover:scale-[103%] rounded-lg ${adminbg} px-8 py-2 border-2 border-gray-200`} onClick={() => {setAdminbg('bg-blue-100');setTeacherbg('bg-white');setStudentbg('bg-white');setTeacherapi(false);setStudentapi(false);setAdminapi(true)}}>
                       <Shield className="w-5 h-5" />
                       <h1>Admin</h1>
                     </div>
                   </div>
               </div>
 
-              <form action="" onClick={handleSubmit} className='flex flex-col w-full py-3 gap-5 items-center'>
+              <form action="" onSubmit={handleSubmit} className='flex flex-col w-full py-3 gap-5 items-center'>
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <Mail className="h-5 w-5 text-gray-400" />
