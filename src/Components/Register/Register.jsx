@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { GraduationCap,Mail,Lock,BookOpen,Users,Shield,} from "lucide-react";
 
 function Register() {
+
+   const BASE_URL="http://localhost:8000/tutor"
   
     const [studentbg,setStudentbg]=useState('bg-blue-100')
     const [teacherbg,setTeacherbg]=useState("white")
@@ -20,6 +22,17 @@ function Register() {
       email:email,
       password:password,
       confpass:confirmpass
+    }
+
+    if(studentapi===true){
+
+
+
+    }
+    else{
+
+      
+
     }
 
     return (
