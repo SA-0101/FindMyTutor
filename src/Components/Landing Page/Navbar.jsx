@@ -39,7 +39,7 @@ function Navbar() {
 
             <li >
                 <button className='text-[#1E90FF] border-[#1E90FF] border-[2px] w-[110px] h-[40px] rounded-[100px] px-2'>
-                        <NavLink to="/LogInPage">
+                        <NavLink to="/Login">
                           Login
                         </NavLink>
                 </button></li> 
