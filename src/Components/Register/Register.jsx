@@ -1,5 +1,5 @@
 import { useNavigate,NavLink } from 'react-router-dom'
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 import { GraduationCap,Mail,Lock,BookOpen,Users,Shield,} from "lucide-react";
 
 function Register() {
@@ -17,23 +17,87 @@ function Register() {
     const [studentapi,setStudentapi]=useState(true)
     const [teacherapi,setTeacherapi]=useState(false)
     
-    const registrationData={
-      name:username,
+    const studentData={
+      studentName:username,
       email:email,
       password:password,
-      confpass:confirmpass
+      confirmPassword:confirmpass
     }
 
-    if(studentapi===true){
+     const tutorData={
+      teacherName:username,
+      email:email,
+      password:password,
+      confirmPassword:confirmpass
+    }
+
+    const registerUser =async ()=> {
 
 
+    if (studentapi === true) {
+
+      try {
+        const response = await fetch(`${BASE_URL}/registerStudent`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(studentData)
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        if (response.ok) {
+          alert('Student Register Successfully!');
+          navigate("/Student")
+
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
 
     }
-    else{
 
-      
+    else {
+
+      try {
+        const response = await fetch(`${BASE_URL}/registerTeacher`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(tutorData)
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        if (response.ok) {
+          alert('Tutor Register Successfully!');
+          navigate("/Tutor")
+        } else {
+          alert(data.message || 'Something went wrong during registration.');
+        }
+
+      } catch (error) {
+
+        alert('Registration failed: ' + error.message);
+      }
 
     }
+
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    registerUser();
+  }
+  
 
     return (
         <div className='flex flex-col justify-between gap-4 py-5 items-center overflow-y-hidden  max-w-full min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
@@ -63,7 +127,7 @@ function Register() {
                   </div>
               </div>
 
-              <form action="" className='flex flex-col w-full py-3 gap-5 items-center'>
+              <form action="" onSubmit={handleSubmit} className='flex flex-col w-full py-3 gap-5 items-center'>
              
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                     <Users className="h-5 w-5 text-gray-400" />
@@ -85,7 +149,7 @@ function Register() {
                     <input type="text" placeholder='Conform Password' className='w-full outline-0 px-3 py-3' onChange={(e)=>{setConfirmpass(e.target.value)}}/>
               </div>
 
-                <button className='bg-blue-600 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Create Account</button>
+                <button type='submit' className='bg-blue-600 w-full py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Create Account</button>
               </form>
 
 
