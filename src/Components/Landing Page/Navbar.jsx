@@ -45,8 +45,8 @@ function Navbar() {
                 </button></li> 
             <li>
                 <button className='bg-[#1E90FF] w-[100px] h-[40px] rounded-[110px] px-2'>
-                  <NavLink to="/SignUpPage">
-                    Sign Up
+                  <NavLink to="/Register">
+                    Register
                   </NavLink>  
                     </button></li>
             </div>
