@@ -13,7 +13,7 @@ function ForgetPass() {
     const [adminbg,setAdminbg]=useState("white")
 
     const [email,setEmail]=useState("")
-  console.log(email)
+    
     const [studentapi,setStudentapi]=useState(true)
     const [tutorapi,setTeacherapi]=useState(false)
     const [adminapi,setAdminapi]=useState(false)
@@ -35,7 +35,6 @@ function ForgetPass() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            //  Authorization: `Bearer ${token}`
           },
           body: JSON.stringify(loginData)
         });
@@ -65,7 +64,6 @@ function ForgetPass() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            //  Authorization: `Bearer ${token}`
           },
           body: JSON.stringify(loginData)
         });
@@ -93,7 +91,6 @@ function ForgetPass() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            //  Authorization: `Bearer ${token}`
           },
           body: JSON.stringify(loginData)
         });
