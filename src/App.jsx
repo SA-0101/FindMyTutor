@@ -31,6 +31,7 @@ import Students from '../src/Components/Admin Section/Students'
 import Tutors from '../src/Components/Admin Section/Tutors'
 import AdminNotifications from './Components/Admin Section/AdminNotifications'
 import AdminSetting from './Components/Admin Section/AdminSetting'
+import SearchTeacher from './Components/Student Section/SearchTeacher'
 
 
 
@@ -53,8 +54,8 @@ function App() {
 
                   {/* Student Nested Routing*/}
                   <Route path='/Student' element={<Student/>}>
-                  <Route index element={<StudentHome/>}/>
-                  <Route path='Category' element={<StudentCategory/>}/>
+                  <Route index element={<StudentCategory/>}/>
+                  <Route path='SearchTeachers' element={<SearchTeacher/>}/>
                   <Route path='NearbyTeachers' element={<NearbyTeachers/>}/>
                   <Route path='SavedTeachers' element={<SavedTeachers/>}/> 
                   <Route path='Messages' element={<StudentMessages/>}/> 

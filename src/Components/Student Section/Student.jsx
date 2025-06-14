@@ -44,21 +44,11 @@ function Student() {
           }`
         }
       >
-        Home
-      </NavLink>
-      <NavLink
-        to="Category"
-        className={({ isActive }) =>
-          `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
-            isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
-          }`
-        }
-      >
         Category
       </NavLink>
 
       <NavLink
-        to="SearchTeacher"
+        to="SearchTeachers"
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
@@ -69,7 +59,7 @@ function Student() {
       </NavLink>
 
       <NavLink
-        to="NearbyTeacher"
+        to="NearbyTeachers"
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
@@ -80,24 +70,47 @@ function Student() {
       </NavLink>
 
       <NavLink
-        to="SavedTeacher"
+        to="SavedTeachers"
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
           }`
         }
       >
-        Saved
+        Saved Teachers
       </NavLink>
-      <NavLink
-        to="Notification"
+
+        <NavLink
+        to="Messages"
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
           }`
         }
       >
-        Notification
+        Messages
+      </NavLink>
+
+      <NavLink
+        to="Notifications"
+        className={({ isActive }) =>
+          `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
+            isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
+          }`
+        }
+      >
+        Notifications
+      </NavLink>
+
+        <NavLink
+        to="Setting"
+        className={({ isActive }) =>
+          `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
+            isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
+          }`
+        }
+      >
+        Settings
       </NavLink>
 
       <NavLink
