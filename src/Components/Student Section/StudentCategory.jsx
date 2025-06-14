@@ -10,6 +10,8 @@ function StudentCategory() {
   const [teachersdata,setTeachersdata]=useState([])
   
   const token=localStorage.getItem('token')
+  const studentName=localStorage.getItem('studentname')
+  console.log(studentName)
   console.log(teachersdata)
 
   
@@ -57,7 +59,7 @@ function StudentCategory() {
 
       {/* Greeting */}
       <div className='flex flex-col gap-2'>
-        <h1 className='text-2xl text-[#1E90FF] font-semibold'>Good Morning, Shaan Aslam</h1>
+        <h1 className='text-2xl text-[#1E90FF] font-semibold'>WellCome, {studentName}</h1>
       </div>
 
 

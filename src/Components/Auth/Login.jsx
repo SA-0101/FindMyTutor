@@ -46,6 +46,7 @@ function Login() {
           alert('Student Login Successfully!');
           localStorage.setItem('data',JSON.stringify(data))
           localStorage.setItem('token',data.token)
+          localStorage.setItem('studentname',data.student.studentName)
           console.log(data)
           navigate("/Student")
 
