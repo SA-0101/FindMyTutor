@@ -2,6 +2,7 @@ import { MdForwardToInbox } from "react-icons/md";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutBoxRLine } from "react-icons/ri";
+import { FiSearch } from "react-icons/fi";
 
 import Shaanimg from '../../assets/Shaan.jfif'
 import { NavLink, Outlet } from 'react-router-dom'
