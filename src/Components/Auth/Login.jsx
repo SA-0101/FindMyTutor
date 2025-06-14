@@ -44,7 +44,9 @@ function Login() {
 
         if (response.ok) {
           alert('Student Login Successfully!');
-          localStorage.getItem('user',JSON.stringify(data))
+          localStorage.setItem('data',JSON.stringify(data))
+          localStorage.setItem('token',data.token)
+          console.log(data)
           navigate("/Student")
 
         } else {
@@ -73,7 +75,9 @@ function Login() {
         
         if (response.ok) {
           alert('Tutor Login Successfully!');
-          localStorage.getItem('user',data)
+          localStorage.setItem('data',JSON.stringify(data))
+          localStorage.setItem('token',data.token)
+          console.log(data)
           navigate("/Tutor")
         } else {
           alert(data.message || 'Something went wrong during registration.');
@@ -100,7 +104,9 @@ function Login() {
 
         if (response.ok) {
           alert('Admin Login Successfully!');
-          localStorage.getItem('user',data)
+          localStorage.setItem('data',JSON.stringify(data))
+          localStorage.setItem('token',data.token)
+          console.log(data)
           navigate("/Admin")
         } else {
           alert(data.message || 'Something went wrong during registration.');
