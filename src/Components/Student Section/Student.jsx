@@ -1,6 +1,8 @@
 import { MdForwardToInbox } from "react-icons/md";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+
 import Shaanimg from '../../assets/Shaan.jfif'
 import { NavLink, Outlet } from 'react-router-dom'
 // import Notfound from '../Not Found/Notfound';
@@ -33,7 +35,7 @@ function Student() {
                 <div className='bg-[#ffffff] shadow-[0px_4px_20px_#2626261F] rounded-[10px] w-[20%] h-[600px] flex flex-col justify-evenly items-center'>
                     <img src={Shaanimg} alt="Profile Pic" className='rounded-[50%] w-[120px] h-[120px]' />
                    
-                    <nav className='flex flex-col gap-2'>
+                    <nav className='flex w-full px-8 flex-col gap-2'>
 
                     <NavLink
         to="."
@@ -43,8 +45,11 @@ function Student() {
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
           }`
         }
-      >
-        Category
+      >   
+      <div className="flex gap-3 w-full items-start">
+          <h1>📚</h1>
+          <h1>Category</h1>
+      </div>
       </NavLink>
 
       <NavLink
@@ -55,7 +60,10 @@ function Student() {
           }`
         }
       >
-        Search Teacher
+       <div className="flex gap-3 w-full items-start">
+          <h1>📚</h1>
+          <h1>Search Teachers</h1>
+      </div>
       </NavLink>
 
       <NavLink
@@ -66,7 +74,10 @@ function Student() {
           }`
         }
       >
-        Nearby Teacher
+        <div className="flex gap-3 w-full items-start">
+          <h1>📍</h1>
+          <h1>Nearby Teachers</h1>
+      </div>
       </NavLink>
 
       <NavLink
@@ -77,7 +88,10 @@ function Student() {
           }`
         }
       >
-        Saved Teachers
+        <div className="flex gap-3 w-full items-start">
+          <h1>⭐</h1>
+          <h1>Saved Teachers</h1>
+      </div>
       </NavLink>
 
         <NavLink
@@ -88,7 +102,10 @@ function Student() {
           }`
         }
       >
-        Messages
+        <div className="flex gap-3 w-full items-start">
+          <h1>💬</h1>
+          <h1>Messages</h1>
+      </div>
       </NavLink>
 
       <NavLink
@@ -99,18 +116,24 @@ function Student() {
           }`
         }
       >
-        Notifications
+         <div className="flex gap-3 w-full items-start">
+          <h1>🔔</h1>
+          <h1>Notifications</h1>
+      </div>
       </NavLink>
 
         <NavLink
-        to="Setting"
+        to="Settings"
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
           }`
         }
       >
-        Settings
+         <div className="flex gap-3 w-full items-start">
+          <h1>⚙️</h1>
+          <h1>Settings</h1>
+      </div>
       </NavLink>
 
       <NavLink
@@ -121,7 +144,10 @@ function Student() {
           }`
         }
       >
-        Logout
+        <div className="flex gap-3 w-full items-start">
+          <RiLogoutBoxRLine  size={20} />
+          <h1>Logout</h1>
+      </div>
       </NavLink>
 
                     </nav>
