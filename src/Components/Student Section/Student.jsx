@@ -3,13 +3,14 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
-
 import Shaanimg from '../../assets/Shaan.jfif'
 import { NavLink, Outlet } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 // import Notfound from '../Not Found/Notfound';
 
 function Student() {
   
+  const navigate=useNavigate();
 
   return (
         <div className='w-full bg-[#FAFAFA] flex flex-col'>
@@ -123,21 +124,13 @@ function Student() {
       </div>
       </NavLink>
 
-      <NavLink
-        to="Logout"
-        className={({ isActive }) =>
-          `flex text-[#FF6824] items-center w-full py-2 px-4 rounded-full ${
-            isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
-          }`
-        }
-      >
-        <div className="flex gap-3 w-full items-start">
+      
+        <div className="flex px-4 py-2 text-red-600 font-bold cursor-pointer gap-3 w-full items-start">
           <RiLogoutBoxRLine  size={20} />
-          <h1>Logout</h1>
+          <button className="cursor-pointer" onClick={()=>{localStorage.removeItem('data');navigate("/")}}>Logout</button>
       </div>
-      </NavLink>
+              </nav>
 
-                    </nav>
                 </div>
 
                 <div className='bg-[#FAFAFA] w-[80%]'>
