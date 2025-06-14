@@ -64,14 +64,16 @@ function StudentCategory() {
     const saveTeacherData={
 
       studentId: studentId,
-      teacherId:  teacher.teacherId ,
+      teacherId:  teacher._id ,
       teacherName: teacher.teacherName,
       img:          teacher.img ,
       email:        teacher.email   ,
       contact:     teacher.contact   ,
       degree:      teacher.degree ,
+      experience: teacher.experience,
       subject:     teacher.subject ,
       location:    teacher.location ,
+      coordinates: teacher.coordinates,
       register:    teacher.register ,
       rating:      teacher.rating  ,
       isInstantTutor: teacher.isInstantTutor ,
@@ -168,7 +170,7 @@ function StudentCategory() {
                   <h1>{e.Distance}</h1>
                 </div>
                 <div className='flex justify-between'>
-                  <img src={heart} alt="heart icon" onClick={(e)=>{saveTeachers(e)}}/>
+                  <img src={heart} alt="heart icon" onClick={()=>{saveTeachers(e)}}/>
                   <button className='bg-[#1E90FF] text-white rounded-full px-10 py-1 text-xl'>Contact</button>
                 </div> 
               </div>
