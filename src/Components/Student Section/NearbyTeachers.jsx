@@ -12,8 +12,9 @@ L.Icon.Default.mergeOptions({
 
 function NearbyTeachers() {
 
-      
-
+      const BASE_URL= "http://localhost:8000/tutor"
+      const [teachersdata,setTeachersdata]=useState([])
+      const token=localStorage.getItem('token')
 
 
  return (
