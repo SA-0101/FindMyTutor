@@ -32,7 +32,7 @@ import Tutors from '../src/Components/Admin Section/Tutors'
 import AdminNotifications from './Components/Admin Section/AdminNotifications'
 import AdminSetting from './Components/Admin Section/AdminSetting'
 import SearchTeacher from './Components/Student Section/SearchTeacher'
-import ContactUs from './Components/Contact/ContactUs'
+import ContactUs from './Components/Contact Us/ContactUs'
 
 
 function App() {
