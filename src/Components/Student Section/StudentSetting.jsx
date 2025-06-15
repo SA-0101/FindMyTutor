@@ -6,27 +6,33 @@ function StudentSetting() {
 
         const BASE_URL="http://localhost:8000/api"
        
+       const studentNamee =localStorage.getItem('studentname')
+       const emaill =localStorage.getItem('email')
+      //  const contactt =localStorage.setItem('contact',data.student.contact)
+       const addresss =localStorage.getItem('address')
         const token=localStorage.getItem('token')
 
-        const [fullName, setfullName] = useState(user?.user?.username || "");
-        const [img, setImg] = useState(null);
-        const [email, setEmail] = useState(user?.user?.email || "");
-        const [address, setAddress] = useState(user?.user?.address || "");
-        const [currPassword,setcurrPassword]=useState("")
-        const [newPassword,setnewPassword]=useState("")
+        const [studentName, setstudentName] = useState(studentNamee || "");
+        // const [img, setImg] = useState(null);
+        const [email, setEmail] = useState(emaill || "");
+        const [contact,setContact]=useState("");
+        const [address, setAddress] = useState(addresss || "");
+        const [currPassword,setcurrPassword]=useState("");
+        const [newPassword,setnewPassword]=useState("");
 
         const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("studentName", fullName);
-    formData.append("img", img);
+    formData.append("studentName", studentName);
+    formData.append("contact", contact);
+    // formData.append("img", img);
     formData.append("email", email);
     formData.append("address",address);
     formData.append("currPassword",currPassword);
     formData.append("newPassword",newPassword);
 
-    console.log("checking img attribute",img)
+    // console.log("checking img attribute",img)
 
     try {
       const response = await fetch(`${BASE_URL}/updateStudentProfile`, {
@@ -55,7 +61,7 @@ function StudentSetting() {
 
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-white flex flex-col gap-6 justify-center items-center py-10 px-4'>
+    <div className='min-h-screen flex flex-col gap-6 justify-center items-center py-10 px-4'>
       
       <form onSubmit={handleSubmit} className='w-full max-w-md bg-white shadow-lg rounded-xl p-8 space-y-8'>
           <div className='flex flex-col items-center gap-5'>
@@ -64,13 +70,13 @@ function StudentSetting() {
           
             {/* Display selected image preview OR user image */}
             <div className="relative">
-              <img
+              {/* <img
                 src={img ? URL.createObjectURL(img) : user?.user?.img}
                 alt="Profile"
                 className='w-28 h-28 rounded-full object-cover border-4 border-purple-400 shadow-md'
-              />
+              /> */}
               {/* Camera icon overlay */}
-              <label 
+              {/* <label 
                 htmlFor="profileImage"
                 className='absolute bottom-0 right-0 bg-purple-600 p-2 rounded-full cursor-pointer hover:bg-purple-700 transition'
                 title="Change profile picture"
@@ -83,15 +89,15 @@ function StudentSetting() {
                 accept="image/*"
                 onChange={(e) => setImg(e.target.files[0])}
                 className='hidden'
-              />
+              /> */}
             </div>
 
           </div>
           
           <div className='space-y-4'>
             <input 
-              value={fullName} 
-              onChange={(e)=>{setfullName(e.target.value)}} 
+              value={studentNamee} 
+              onChange={(e)=>{setstudentName(e.target.value)}} 
               type="text" 
               className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition' 
               placeholder='User Name'

@@ -44,9 +44,12 @@ function Login() {
 
         if (response.ok) {
           alert('Student Login Successfully!');
-          localStorage.setItem('data',JSON.stringify(data))
+          // localStorage.setItem('data',JSON.stringify(data))
           localStorage.setItem('token',data.token)
           localStorage.setItem('studentname',data.student.studentName)
+          localStorage.setItem('email',data.student.email)
+          localStorage.setItem('contact',data.student.contact)
+          localStorage.setItem('address',data.student.address)
           localStorage.setItem('studentId',data.student._id)
           console.log(data)
           navigate("/Student")
