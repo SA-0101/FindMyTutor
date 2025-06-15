@@ -112,7 +112,7 @@ function SavedTeachers() {
                 <div className='flex flex-col justify-center items-center'>
                   <h1 className='text-xl font-semibold'>{e.teacherName}</h1>
                   <p className='font-semibold'>Tutor</p>
-                  <h1>Rating</h1>
+                  <h1>{e.rating}</h1>
                 </div> 
               </div>
 
