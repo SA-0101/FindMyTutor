@@ -51,6 +51,7 @@ function Login() {
           localStorage.setItem('contact',data.student.contact)
           localStorage.setItem('address',data.student.address)
           localStorage.setItem('studentId',data.student._id)
+          localStorage.setItem('type',"student")
           console.log(data)
           navigate("/Student")
 
