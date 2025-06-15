@@ -34,7 +34,7 @@ function Student() {
       </div>
             <div className='bg-[#FAFAFA]  px-10 py-10 flex gap-8'>
 
-                <div className='bg-[#ffffff] shadow-[0px_4px_20px_#2626261F] rounded-[10px] w-[20%] h-[600px] flex flex-col justify-evenly items-center'>
+                <div className='bg-[#ffffff] shadow-[0px_4px_20px_#2626261F] rounded-[10px] w-[20%] h-[600px] flex flex-col justify-evenly items-center sticky top-4'>
                    <div className="flex flex-col items-center gap-2">
                          <img src={Shaanimg} alt="Profile Pic" className='rounded-[50%] w-[120px] h-[120px]' />
                         <h1 className="text-2xl font-semibold text-green-500">Student</h1>
