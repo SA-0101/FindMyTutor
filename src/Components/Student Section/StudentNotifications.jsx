@@ -7,6 +7,7 @@ function StudentNotifications() {
   const token=localStorage.getItem('token')
 
   const [notifications,setNotifications]=useState([])
+  console.log(notifications)
 
   const BASE_URL="http://localhost:8000/tutor"
    
@@ -14,7 +15,7 @@ function StudentNotifications() {
       const getNotifications=async ()=> {
      
         const receiverId=localStorage.getItem("studentId")
-  const receiverType=localStorage.getItem("type")
+         const receiverType=localStorage.getItem("type")
           try {
             const response = await fetch(`${BASE_URL}/getNotifications/${receiverId}/${receiverType}`,{
               method:"GET",
@@ -30,7 +31,7 @@ function StudentNotifications() {
             if (response.ok) {
 
               alert("Notifications Fetched")
-              setNotifications(responsedata);  // Store the fetched data in state
+              setNotifications(responsedata.notifications);  // Store the fetched data in state
               console.log(responsedata)
             }
             else{
