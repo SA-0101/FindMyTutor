@@ -32,7 +32,7 @@ import Tutors from '../src/Components/Admin Section/Tutors'
 import AdminNotifications from './Components/Admin Section/AdminNotifications'
 import AdminSetting from './Components/Admin Section/AdminSetting'
 import SearchTeacher from './Components/Student Section/SearchTeacher'
-
+import ContactUs from './Components/Contact/ContactUs'
 
 
 function App() {
@@ -49,7 +49,8 @@ function App() {
                     <Route path='/Login' element={<Login/>}/>
                     <Route path='/Forgetpass' element={<ForgetPass/>}/>
                     <Route path='/Otpver' element={<OtpVerification/>}/>
-                    <Route path='/Resetpass' element={<ResetPass/>}/>                    
+                    <Route path='/Resetpass' element={<ResetPass/>}/> 
+                    <Route path='/ContactUs' element={<ContactUs/>}/>                 
             
 
                   {/* Student Nested Routing*/}

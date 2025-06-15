@@ -12,7 +12,7 @@ function Contact() {
       <div className='flex justify-center items-center gap-5'>
            <div className='flex justify-center items-center w-[50%] px-5'><h1 className='text-4xl font-semibold'>Join thousands of satisfied students and teachers!</h1></div>
             <div className='flex justify-center items-center w-[50%]'><button className='rounded-3xl  bg-white text-[#1E90FF] px-[90px] py-2 font-semibold'>
-              <NavLink to="/SignUpPage">
+              <NavLink to="/Register">
               Create your free account
               </NavLink>
               </button></div>
