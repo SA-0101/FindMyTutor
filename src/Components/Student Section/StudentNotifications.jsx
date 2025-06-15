@@ -30,7 +30,7 @@ function StudentNotifications() {
       
             if (response.ok) {
 
-              alert("Notifications Fetched")
+              // alert("Notifications Fetched")
               setNotifications(responsedata.notifications);  // Store the fetched data in state
               console.log(responsedata)
             }
@@ -48,9 +48,47 @@ function StudentNotifications() {
           getNotifications();
     },[])
 
+    {/*Function for Separating Date and Time */}
+    function splitDateTime(datetimeString) {
+       const date = new Date(datetimeString);
+        return {
+          dateOnly: date.toLocaleDateString(),
+          timeOnly: date.toLocaleTimeString(),
+        };
+    }
+
   return (
-    <div>
-            
+    <div className="w-full bg-green-300">
+
+          <div className="flex flex-col justify-center items-center gap-5">
+
+            <div>📩 Your Notifications</div>
+
+            {
+              notifications.length===0 ? <div>No Notifications for You</div> :
+             notifications.map((notification,index)=>{
+
+              return <div key={index} className="w-full flex flex-col items-start rounded-lg gap-2 px-3 py-2 border border-black">
+
+              <div className="w-full flex justify-between">
+                <h1>From: {notification.senderType}</h1>
+                <h1>{splitDateTime(notification.createdAt).dateOnly} at {splitDateTime(notification.createdAt).timeOnly}</h1>
+              </div>
+
+              <h1>{notification.title}</h1>
+              <h1>{notification.message}</h1>
+              <button className="px-4 py-1 rounded-lg text-white font-semibold bg-red-500">Delete</button>
+
+            </div>
+
+             })  
+
+            }
+           
+
+          </div>
+
+
     </div>
   )
 }
