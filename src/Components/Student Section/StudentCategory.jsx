@@ -12,10 +12,6 @@ function StudentCategory() {
   const token=localStorage.getItem('token')
   const studentName=localStorage.getItem('studentname')
   const studentId=localStorage.getItem('studentId')
-  console.log(studentId)
-  console.log(studentName)
-  console.log(teachersdata)
-
 
   // // Filtering logic based on selected subject only
   const filteredTeachers = subject==="All" ? teachersdata:
@@ -44,7 +40,7 @@ function StudentCategory() {
 
             }
             else{
-                console.log(responsedata.message)
+                alert(responsedata.message)
             }
 
           } catch (error) {
@@ -99,7 +95,7 @@ function StudentCategory() {
 
             }
             else{
-                console.log(responsedata.message)
+                alert(responsedata.message)
             }
 
           } catch (error) {
@@ -142,36 +138,54 @@ function StudentCategory() {
       <div className='flex flex-1 flex-wrap gap-5'>
         {filteredTeachers.length > 0 ? (
           filteredTeachers.map((e) => (
-            <div key={e._id} className='flex flex-col flex-1 justify-center min-w-[300px] max-w-[500px] bg-white px-8 py-4 rounded-xl'>
+            <div key={e._id} className='flex flex-col flex-1 justify-center min-w-[300px] max-w-[400px] bg-white px-8 py-4 rounded-xl'>
 
               <div className='flex flex-col justify-center items-center gap-2'>
                 <img className='w-28 h-28 rounded-full' src={e.img} alt={e.name} />
                 <div className='flex flex-col justify-center items-center'>
                   <h1 className='text-xl font-semibold'>{e.teacherName}</h1>
-                  <p className='font-semibold'>Teacher</p>
+                  <p className='font-semibold'>Tutor</p>
+                  <h1>Rating</h1>
                 </div> 
               </div>
 
-              <div className='flex flex-col gap-2 py-2'>
-                <div className='flex justify-between text-start'>
-                  <h1>Subject</h1>
+              <div className='flex flex-col gap-3 py-2'>
+                <div className='flex gap-2 rounded-sm px-1 py-1 bg-blue-100'>
+                  <h1>📚</h1>
                   <h1>{e.subject}</h1>
                 </div>
-                <div className='flex justify-between'>
-                  <h1>Experience</h1>
-                  <h1>{e.experience}</h1>
+
+                <div className='flex gap-2 rounded-sm px-1 py-1'>
+                  <h1>🧑‍🏫</h1>
+                  <h1>{e.isInstantTutor? "Instant Tutor" : "Regular Tutor"}</h1>
                 </div>
-                <div className='flex justify-between'>
-                  <h1>Location</h1>
+
+
+                <div className='flex gap-2 px-1 py-1'>
+                  <h1>📞</h1>
+                  <h1>{e.contact}</h1>
+                </div>
+
+                <div className='flex gap-2 px-1 py-1'>
+                  <h1>👔</h1>
+                  <h1>{e.experience} Years</h1>
+                </div>
+               <div className='flex gap-2 px-1 py-1'>
+                  <h1>📍</h1>
                   <h1>{e.location}</h1>
                 </div>
-                <div className='flex justify-between'>
-                  <h1>Distance</h1>
-                  <h1>{e.Distance}</h1>
-                </div>
-                <div className='flex justify-between'>
-                  <img src={heart} alt="heart icon" onClick={()=>{saveTeachers(e)}}/>
-                  <button className='bg-[#1E90FF] text-white rounded-full px-10 py-1 text-xl'>Contact</button>
+                
+                <div className='flex flex-col gap-3'>
+                 <div className='flex justify-between'>
+                  <button className='bg-blue-400 rounded-full text-xl px-8 py-1'>Chat</button>
+                  <button className='bg-green-400 rounded-full text-xl px-5 py-1'>Whatsapp</button>
+                 </div>
+
+                 <div className='flex justify-between'>
+                  <button className='bg-[#1E90FF] text-white rounded-full px-10 py-1 text-xl'>Visit Profile</button>
+                   <img src={heart} alt="heart icon" onClick={()=>{saveTeachers(e)}}/>
+                  </div> 
+                  
                 </div> 
               </div>
 
