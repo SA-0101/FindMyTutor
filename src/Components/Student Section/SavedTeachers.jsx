@@ -159,7 +159,7 @@ function SavedTeachers() {
             </div>
           ))
         ) : (
-          <div className='text-lg text-gray-500'>No teachers found in this category.</div>
+          <div className='w-full text-lg text-gray-500'>No teachers Saved.</div>
         )}
       </div>  
     </div>
