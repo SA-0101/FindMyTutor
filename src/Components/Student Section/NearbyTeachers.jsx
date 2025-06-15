@@ -11,11 +11,41 @@ L.Icon.Default.mergeOptions({
 });
 
 function NearbyTeachers() {
-  return (
-    <div>
-        Nearby Teachers
-    </div>
-  )
-}
 
+      
+
+
+
+ return (
+    <div style={{ height: "100vh", width: "100%" }}>
+      <MapContainer
+        center={[33.56, 71.48]} // Default center
+        zoom={10}
+        style={{ height: "100%", width: "100%" }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="© OpenStreetMap contributors"
+        />
+
+        {tutors.map((tutor, index) => {
+          const coords = tutor.coordinates?.coordinates;
+          if (!coords) return null;
+
+          return (
+            <Marker
+              key={index}
+              position={[coords[1], coords[0]]} // [latitude, longitude]
+            >
+              <Popup>
+                <strong>{tutor.teacherName}</strong><br />
+                {tutor.email}
+              </Popup>
+            </Marker>
+          );
+        })}
+      </MapContainer>
+    </div>
+  );
+};
 export default NearbyTeachers
