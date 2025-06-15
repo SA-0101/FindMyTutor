@@ -17,6 +17,43 @@ function NearbyTeachers() {
       const token=localStorage.getItem('token')
 
 
+  const getTeachers=async ()=> {
+     
+          try {
+            const response = await fetch(`${BASE_URL}/getRegisteredTeachers`,{
+              method:"GET",
+              headers:{
+                'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+              }
+
+            });
+            
+            const responsedata = await response.json();
+      
+            if (response.ok) {
+
+              setTeachersdata(responsedata.registeredTeachers);  // Store the fetched data in state
+
+            }
+            else{
+                alert(responsedata.message)
+            }
+
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        
+      }
+
+        useEffect(()=>{
+          getTeachers();
+    },[])
+
+
+    
+
+
  return (
     <div style={{ height: "100vh", width: "100%" }}>
       <MapContainer
@@ -29,7 +66,7 @@ function NearbyTeachers() {
           attribution="© OpenStreetMap contributors"
         />
 
-        {tutors.map((tutor, index) => {
+        {teachersdata.map((tutor, index) => {
           const coords = tutor.coordinates?.coordinates;
           if (!coords) return null;
 
