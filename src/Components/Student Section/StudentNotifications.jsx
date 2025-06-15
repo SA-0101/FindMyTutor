@@ -2,12 +2,19 @@ import { useEffect,useState } from "react"
 
 function StudentNotifications() {
 
-  const receiverId=localStorage.getItem("studentId")
-  const receiverType=localStorage.getItem("type")
+  // const receiverId=localStorage.getItem("studentId")
+  // const receiverType=localStorage.getItem("type")
+  const token=localStorage.getItem('token')
+
+  const [notifications,setNotifications]=useState([])
+
+  const BASE_URL="http://localhost:8000/tutor"
    
   {/*Save Teacher API call */}
-      const getNotifications=async ({receiverId,receiverType})=> {
+      const getNotifications=async ()=> {
      
+        const receiverId=localStorage.getItem("studentId")
+  const receiverType=localStorage.getItem("type")
           try {
             const response = await fetch(`${BASE_URL}/getNotifications/${receiverId}/${receiverType}`,{
               method:"GET",
@@ -22,8 +29,9 @@ function StudentNotifications() {
       
             if (response.ok) {
 
-              setTeachersdata(responsedata);  // Store the fetched data in state
-
+              alert("Notifications Fetched")
+              setNotifications(responsedata);  // Store the fetched data in state
+              console.log(responsedata)
             }
             else{
                 alert(responsedata.message)
