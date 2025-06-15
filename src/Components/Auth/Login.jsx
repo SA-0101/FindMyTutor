@@ -43,7 +43,7 @@ function Login() {
         const data = await response.json();
 
         if (response.ok) {
-          alert('Student Login Successfully!');
+          alert('✅ Student Login Successfully!');
           // localStorage.setItem('data',JSON.stringify(data))
           localStorage.setItem('token',data.token)
           localStorage.setItem('studentname',data.student.studentName)
@@ -79,7 +79,7 @@ function Login() {
         const data = await response.json();
         
         if (response.ok) {
-          alert('Tutor Login Successfully!');
+          alert('✅ Tutor Login Successfully!');
           localStorage.setItem('data',JSON.stringify(data))
           localStorage.setItem('token',data.token)
           console.log(data)
@@ -108,7 +108,7 @@ function Login() {
         const data = await response.json();
 
         if (response.ok) {
-          alert('Admin Login Successfully!');
+          alert('✅ Admin Login Successfully!');
           localStorage.setItem('data',JSON.stringify(data))
           localStorage.setItem('token',data.token)
           console.log(data)
