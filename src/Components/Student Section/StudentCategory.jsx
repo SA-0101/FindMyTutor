@@ -9,6 +9,8 @@ function StudentCategory() {
   const [subject, setSubject] = useState("All"); // Empty = all categories
   const [teachersdata,setTeachersdata]=useState([])
   
+  console.log(teachersdata)
+
   const token=localStorage.getItem('token')
   const studentName=localStorage.getItem('studentname')
   const studentId=localStorage.getItem('studentId')
