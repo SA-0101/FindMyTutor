@@ -82,8 +82,11 @@ function Login() {
         
         if (response.ok) {
           alert('✅ Tutor Login Successfully!');
-          localStorage.setItem('data',JSON.stringify(data))
           localStorage.setItem('token',data.token)
+          localStorage.setItem('teacherId',data.teacher._id)
+          localStorage.setItem('teacherName',data.teacher.teacherName)
+          localStorage.setItem('teacherEmail',data.teacher.email)
+          localStorage.setItem('teacherimg',data.teacher.img)
           console.log(data)
           navigate("/Tutor")
         } else {
