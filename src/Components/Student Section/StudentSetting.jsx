@@ -7,7 +7,7 @@ function StudentSetting() {
         const BASE_URL="http://localhost:8000/tutor"
        
        const studentNamee =localStorage.getItem('studentname')
-       const imgg =localStorage.getItem('student.img')
+       const imgg =localStorage.getItem('studentimg')
        const emaill =localStorage.getItem('email')
 
       //  const contactt =localStorage.setItem('contact',data.student.contact)
@@ -73,7 +73,7 @@ function StudentSetting() {
             {/* Display selected image preview OR user image */}
             <div className="relative">
               <img
-                src={img ? URL.createObjectURL(imgg) : imgg}
+                src={img ? URL.createObjectURL(img) : imgg}
                 alt="Profile"
                 className='w-28 h-28 rounded-full object-cover border-4 border-purple-400 shadow-md'
               />
