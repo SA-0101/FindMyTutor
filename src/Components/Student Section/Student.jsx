@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 function Student() {
   
+  const img =localStorage.getItem('studentimg')
+  console.log(img)
   const navigate=useNavigate();
 
   return (
@@ -36,7 +38,7 @@ function Student() {
 
                 <div className='bg-[#ffffff] shadow-[0px_4px_20px_#2626261F] rounded-[10px] w-[20%] h-[600px] flex flex-col justify-evenly items-center sticky top-4'>
                    <div className="flex flex-col items-center gap-2">
-                         <img src={Shaanimg} alt="Profile Pic" className='rounded-[50%] w-[120px] h-[120px]' />
+                         <img src={img} alt="Profile Pic" className='rounded-[50%] w-[120px] h-[120px]' />
                         <h1 className="text-2xl font-semibold text-green-500">Student</h1>
                    </div>
                    

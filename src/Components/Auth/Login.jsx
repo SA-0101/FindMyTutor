@@ -47,6 +47,7 @@ function Login() {
           // localStorage.setItem('data',JSON.stringify(data))
           localStorage.setItem('token',data.token)
           localStorage.setItem('studentname',data.student.studentName)
+          localStorage.setItem('studentimg',data.student.img)
           localStorage.setItem('email',data.student.email)
           localStorage.setItem('contact',data.student.contact)
           localStorage.setItem('address',data.student.address)
