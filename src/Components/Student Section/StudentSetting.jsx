@@ -8,7 +8,7 @@ function StudentSetting() {
        
        const studentNamee =localStorage.getItem('studentname')
        const imgg =localStorage.getItem('studentimg')
-       const emaill =localStorage.getItem('email')
+       const emaill =localStorage.getItem('studentemail')
 
       //  const contactt =localStorage.setItem('contact',data.student.contact)
        const addresss =localStorage.getItem('address')

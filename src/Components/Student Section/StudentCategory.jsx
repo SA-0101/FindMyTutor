@@ -1,6 +1,5 @@
 import { useEffect,useState } from 'react';
 import heart from '../../assets/Icons/Heart.png';
-import { Popular_Teachers } from '../../Data/Data';
 
 function StudentCategory() {
 
@@ -180,7 +179,7 @@ function StudentCategory() {
                 <div className='flex flex-col gap-3'>
                  <div className='flex justify-between'>
                   <button className='bg-blue-400 rounded-full text-xl px-8 py-1'>Chat</button>
-                  <button className='bg-green-400 rounded-full text-xl px-5 py-1'>Whatsapp</button>
+                  <button className='bg-green-400 rounded-full text-xl px-5 py-1' onClick={()=>{window.open(`https://wa.me/${e.contact}`, "_blank")}}>Whatsapp</button>
                  </div>
 
                  <div className='flex justify-between'>
