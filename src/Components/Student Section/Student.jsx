@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 function Student() {
   
   const img =localStorage.getItem('studentimg')
-  console.log(img)
   const navigate=useNavigate();
 
   return (
@@ -132,7 +131,17 @@ function Student() {
       
         <div className="flex px-4 py-2 text-red-600 font-bold cursor-pointer gap-3 w-full items-start">
           <RiLogoutBoxRLine  size={20} />
-          <button className="cursor-pointer" onClick={()=>{localStorage.removeItem('data');navigate("/")}}>Logout</button>
+          <button className="cursor-pointer" onClick={()=>{
+          localStorage.removeItem('token')
+          localStorage.removeItem('studentname')
+          localStorage.removeItem('studentimg')
+          localStorage.removeItem('studentemail')
+          localStorage.removeItem('studentcontact')
+          localStorage.removeItem('address')
+          localStorage.removeItem('studentId')
+          localStorage.removeItem('type')
+            ;navigate("/")
+            }}>Logout</button>
       </div>
               </nav>
 

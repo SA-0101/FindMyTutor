@@ -57,7 +57,7 @@ function Login() {
           navigate("/Student")
 
         } else {
-          alert(data.message || 'Something went wrong during registration.');
+          alert(data.message || 'Something went wrong');
         }
 
       } catch (error) {

@@ -9,6 +9,7 @@ function StudentSetting() {
        const studentNamee =localStorage.getItem('studentname')
        const imgg =localStorage.getItem('studentimg')
        const emaill =localStorage.getItem('studentemail')
+       const studentcontact =localStorage.getItem('studentcontact')
 
       //  const contactt =localStorage.setItem('contact',data.student.contact)
        const addresss =localStorage.getItem('address')
@@ -17,7 +18,7 @@ function StudentSetting() {
         const [studentName, setstudentName] = useState(studentNamee || "");
         const [img, setImg] = useState(null);
         const [email, setEmail] = useState(emaill || "");
-        const [contact,setContact]=useState("");
+        const [contact,setContact]=useState(studentcontact || "");
         const [address, setAddress] = useState(addresss || "");
         const [currPassword,setcurrPassword]=useState("");
         const [newPassword,setnewPassword]=useState("");
@@ -98,7 +99,7 @@ function StudentSetting() {
           
           <div className='space-y-4'>
             <input 
-              value={studentNamee} 
+              value={studentName} 
               onChange={(e)=>{setstudentName(e.target.value)}} 
               type="text" 
               className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition' 
