@@ -114,8 +114,14 @@ function Login() {
 
         if (response.ok) {
           alert('✅ Admin Login Successfully!');
-          localStorage.setItem('data',JSON.stringify(data))
-          localStorage.setItem('token',data.token)
+          localStorage.setItem('token',data.admin.token)
+          localStorage.setItem('adminId',data.admin._id)
+          localStorage.setItem('adminImg',data.admin.img)
+          localStorage.setItem('adminName',data.admin.adminName)
+          localStorage.setItem('adminEmail',data.admin.email)
+          localStorage.setItem('adminAddress',data.admin.address)
+          localStorage.setItem('adminContact',data.admin.contact)
+
           console.log(data)
           navigate("/Admin")
         } else {
