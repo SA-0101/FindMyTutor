@@ -13,7 +13,7 @@ function StudentSetting() {
         const token=localStorage.getItem('token')
 
         const [studentName, setstudentName] = useState(studentNamee || "");
-        // const [img, setImg] = useState(null);
+        const [img, setImg] = useState(null);
         const [email, setEmail] = useState(emaill || "");
         const [contact,setContact]=useState("");
         const [address, setAddress] = useState(addresss || "");
@@ -26,7 +26,7 @@ function StudentSetting() {
     const formData = new FormData();
     formData.append("studentName", studentName);
     formData.append("contact", contact);
-    // formData.append("img", img);
+    formData.append("img", img);
     formData.append("email", email);
     formData.append("address",address);
     formData.append("currPassword",currPassword);
@@ -76,7 +76,7 @@ function StudentSetting() {
                 className='w-28 h-28 rounded-full object-cover border-4 border-purple-400 shadow-md'
               /> */}
               {/* Camera icon overlay */}
-              {/* <label 
+              <label 
                 htmlFor="profileImage"
                 className='absolute bottom-0 right-0 bg-purple-600 p-2 rounded-full cursor-pointer hover:bg-purple-700 transition'
                 title="Change profile picture"
@@ -89,7 +89,7 @@ function StudentSetting() {
                 accept="image/*"
                 onChange={(e) => setImg(e.target.files[0])}
                 className='hidden'
-              /> */}
+              />
             </div>
 
           </div>
@@ -110,6 +110,13 @@ function StudentSetting() {
               className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition' 
               placeholder='Email'
               required
+            />
+            <input 
+              value={contact} 
+              onChange={(e)=>{setContact(e.target.value)}} 
+              type="number" 
+              className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition' 
+              placeholder='Contact'
             />
             <input 
               value={address} 
