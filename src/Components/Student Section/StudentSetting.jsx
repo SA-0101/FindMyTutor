@@ -23,45 +23,6 @@ function StudentSetting() {
         const [currPassword,setcurrPassword]=useState("");
         const [newPassword,setnewPassword]=useState("");
 
-        const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("studentName", studentName);
-    formData.append("contact", contact);
-    formData.append("img", img);
-    formData.append("email", email);
-    formData.append("address",address);
-    formData.append("currPassword",currPassword);
-    formData.append("newPassword",newPassword);
-
-    // console.log("checking img attribute",img)
-
-    try {
-      const response = await fetch(`${BASE_URL}/updateStudentProfile`, {
-        method: "PUT",
-        headers: {
-    Authorization: `Bearer ${token}`,
-      },
-        body: formData,
-      });
-
-      const data = await response.json();
-      console.log(data);
-      
-      if(response.ok){
-        alert("Profile Updated successfully")
-        
-      }
-      else{
-        alert(data.error)
-      }
-     
-    } catch (error) {
-      console.error("Error uploading product:", error);
-    }
-  };
-
 
   return (
     <div className='min-h-screen flex flex-col gap-6 justify-center items-center py-10 px-4'>

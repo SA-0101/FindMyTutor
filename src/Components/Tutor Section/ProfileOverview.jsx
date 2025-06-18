@@ -7,6 +7,9 @@ import "leaflet/dist/leaflet.css";
 
 function ProfileOverview() {
 
+    const BASE_URL="http://localhost:8000/tutor"
+
+    const token=localStorage.getItem('token')
     const [img,setImg]=useState("")
     const [teacherName,setTeachername]=useState("")
     const [teacheremail,setTeacheremail]=useState("")
@@ -40,6 +43,10 @@ function ProfileOverview() {
     return null;
   }
 
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
   const formData = new FormData();
 
 formData.append("img", img);
@@ -50,9 +57,34 @@ formData.append("contact", teachercontact);
 formData.append("teacherAddress", teacheraddress);
 formData.append("subject", subject);
 formData.append("degree", lastdegree);
+formData.append("location", teacheraddress); {/*The location is actually the address of the Teacher */}
 formData.append("isInstantTutor", instant);
 formData.append("latitude", latitude);
 formData.append("longitude", longitude);
+
+    try {
+      const response = await fetch(`${BASE_URL}/updateTeacherProfile`, {
+        method: "PUT",
+        headers: {
+    Authorization: `Bearer ${token}`,
+      },
+        body: formData,
+      });
+
+      const data = await response.json();
+      
+      if(response.ok){
+        alert("Profile Updated successfully")
+        console.log(data);
+      }
+      else{
+        alert(data.error)
+      }
+     
+    } catch (error) {
+      console.error("Error uploading product:", error);
+    }
+  };
    
 
   return (
@@ -73,7 +105,7 @@ formData.append("longitude", longitude);
                 <h1>Update your profile information and preferences</h1>
               </div>
 
-              <form action="" className="w-full flex flex-col px-5 py-5 gap-10 bg-white">
+              <form action="" onSubmit={handleSubmit} className="w-full flex flex-col px-5 py-5 gap-10 bg-white">
                 <div className="w-full flex flex-col gap-8 py-2">
                   <div className="flex flex-col justify-center items-center">
                     <input type="file" name="" id="" onChange={(e) => setImg(e.target.files[0])}/>
