@@ -42,8 +42,7 @@ function ProfileOverview() {
 
   const formData = new FormData();
 
-formData.append("img", img); // img should be a File (from input type="file")
-
+formData.append("img", img);
 formData.append("teacherName", teacherName);
 formData.append("email", teacheremail);
 formData.append("experiance", teacherexperiance);
@@ -54,7 +53,6 @@ formData.append("degree", lastdegree);
 formData.append("isInstantTutor", instant);
 formData.append("latitude", latitude);
 formData.append("longitude", longitude);
-
    
 
   return (
