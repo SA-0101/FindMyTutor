@@ -49,18 +49,18 @@ const handleSubmit = async (e) => {
 
   const formData = new FormData();
 
-formData.append("img", img);
-formData.append("teacherName", teacherName);
-formData.append("email", teacheremail);
-formData.append("experiance", teacherexperiance);
-formData.append("contact", teachercontact);
-formData.append("teacherAddress", teacheraddress);
-formData.append("subject", subject);
-formData.append("degree", lastdegree);
-formData.append("location", teacheraddress); {/*The location is actually the address of the Teacher */}
-formData.append("isInstantTutor", instant);
-formData.append("latitude", latitude);
-formData.append("longitude", longitude);
+            formData.append("img", img);
+            formData.append("teacherName", teacherName);
+            formData.append("email", teacheremail);
+            formData.append("experiance", teacherexperiance);
+            formData.append("contact", teachercontact);
+            formData.append("teacherAddress", teacheraddress);
+            formData.append("subject", subject);
+            formData.append("degree", lastdegree);
+            formData.append("location", teacheraddress); {/*The location is actually the address of the Teacher */}
+            formData.append("isInstantTutor", instant);
+            formData.append("latitude", latitude);
+            formData.append("longitude", longitude);
 
     try {
       const response = await fetch(`${BASE_URL}/updateTeacherProfile`, {
