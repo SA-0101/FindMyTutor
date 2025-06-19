@@ -7,16 +7,17 @@ function TutorNotifications() {
 
     const BASE_URL="http://localhost:8000/tutor"
     const [students,setStudents]=useState([])
-    const [studentname,setStudentname]=useState("")
+
     const [title,setTitle]=useState("")
     const [message,setMessage]=useState("")
     const [receiverId,setRecieverid]=useState("")
+    const [bydefault, setbydefault] = useState(""); // By default value for drop down
+
 
     const token= localStorage.getItem('token')
     const type= localStorage.getItem('type')
     const teacherId= localStorage.getItem('teacherId')
     const receivertype= localStorage.getItem('receiverType')
-
 
     const getStudents=async ()=> {
          
@@ -62,15 +63,16 @@ function TutorNotifications() {
           receiverId: receiverId,
           receiverType: receivertype,
           title: title ,
-          message: message,
+          message: message,        
 
     }
-  
+    
 
     try {
       const response = await fetch(`${BASE_URL}/sendNotification`, {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
       },
         body:JSON.stringify(notificationData),
@@ -79,7 +81,7 @@ function TutorNotifications() {
       const data = await response.json();
       
       if(response.ok){
-        alert("Profile Updated successfully")
+        alert("Notification Send Successfully!!")
         console.log(data);
       }
       else{
@@ -117,12 +119,12 @@ function TutorNotifications() {
 
                     <div className="flex flex-col gap-1">
                       <label className="font-semibold" htmlFor="">Select Student</label>
-                      <select className="px-2 py-2 rounded-lg outline-0 border-[1px] border-black" name="" id="" onChange={(e)=>{setStudentname(e.target.value)}}>
-                        <label htmlFor="" >Choose Student</label>
+                      <select className="px-2 py-2 rounded-lg outline-0 border-[1px] border-black" value={bydefault} name="" id="" onChange={(e)=>{setRecieverid(e.target.value)}}>
+                       <option value="" disabled>Select Student</option>
                       {
                         students.length===0 ? <label htmlFor="">No student found</label> : 
                         students.map((student,index)=>{
-                          return <option key={index} value={student.studentName}>{student.studentName}</option>
+                          return <option key={index} value={student._id}>{student.studentName}</option>
                         })
                       }
 
