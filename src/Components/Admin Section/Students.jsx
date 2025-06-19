@@ -1,4 +1,4 @@
-import {Users} from "lucide-react"
+import {Users,Trash2} from "lucide-react"
 import { useEffect,useState } from "react"
 
 function Students() {
@@ -25,7 +25,7 @@ function Students() {
           
                 if (response.ok) {
     
-                  setStudentsdata(responsedata);  // Store the fetched data in state
+                  setStudentsdata(responsedata.students);  // Store the fetched data in state
     
                 }
                 else{
@@ -82,35 +82,42 @@ function Students() {
       {/* Third Section means table */}
 
         <div className="w-full py-3">
-
-        <table className="w-full rounded-lg gap-2 border border-gray-300 shadow-sm">
-          <th className="flex justify-between px-5">
+          <table className="w-full rounded-lg gap-2 border border-gray-300 shadow-sm">
+            <th className="flex justify-between px-5">
             <tr>STUDENT</tr>
             <tr>CONTACT INFO</tr>
             <tr>ADDRESS</tr>
             <tr>ACTIONS</tr>
           </th>
-          <tbody className="flex justify-between px-5">
+        {
+          studentsdata.length===0 ? <div>No Students Found</div> : 
+           studentsdata.map((student,index)=>{
+          return <div key={index}> <tbody className="flex justify-between px-5">
             <tr className="flex items-center gap-3 py-2 px-5">
-              <img src="" alt="img" />
+              <img className="w-10 h-10 rounded-[100%]" src={student.img} alt="img" />
               <div className="flex flex-col">
-                <h1>Shaan Aslam</h1>
-                <h1>Id#1</h1>
+                <h1>{student.studentName}</h1>
+                <h1>Id#{index+1}</h1>
               </div>
             </tr>
-            <tr className="flex flex-col">
-              <h1>Email</h1>
-              <h1>Contact No</h1>
+            <tr className="flex flex-col items-center">
+              <h1>{student.email}</h1>
+              <h1>{student.contact}</h1>
             </tr>
             <tr>
-              <h1>Dartappi</h1>
+              <h1>{student.address? student.address : "N/A"}</h1>
             </tr>
-            <tr>
-              bin
-            </tr>
+            <Trash2 size={24} color="red" />
+            
           </tbody>
+               <hr className="border border-black"/>
+               </div>
 
+           }) }
+        
         </table>
+        
+        
       </div>
     </div>
   )
