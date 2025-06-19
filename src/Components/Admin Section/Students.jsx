@@ -1,13 +1,13 @@
-import { MdNotificationsNone } from "react-icons/md";
+import {Users} from "lucide-react"
 
 function Students() {
   return (
-    <div className='w-full flex flex-col gap-8 bg-blue-100 h-lvh'>
+    <div className='w-full flex flex-col gap-8'>
             
           <div className='w-full flex flex-col rounded-lg py-3 gap-2 border border-gray-300 shadow-sm'>
                 <div className="w-full flex justify-between items-center px-5">
                   <div className='flex items-center gap-2'>
-                    <MdNotificationsNone size={50} color="black" className="bg-blue-500 rounded-lg" />
+                    <Users className="w-10 h-10 text-white bg-blue-500 px-2 py-1 rounded-lg" />
                       <div>
                         <h1 className='text-2xl font-bold'>Notifications</h1>
                         <h1>Manage your notifications and stay connected</h1>
@@ -19,7 +19,7 @@ function Students() {
                   
                 </div>
                 <div className="w-full px-5 py-2">
-                    <input className="w-full outline-0 border border-black px-2 py-2 rounded-lg" type="text" name="" id="" placeholder='Search student by name...'/>
+                    <input className="w-full outline-0 border border-black bg-blue-100 px-2 py-2 rounded-lg" type="text" name="" id="" placeholder='Search student by name...'/>
                 </div>
           </div>
 
@@ -34,20 +34,22 @@ function Students() {
                     
                   </div>
                   
-                    <MdNotificationsNone size={45} color="black" className="bg-blue-300 rounded-lg" />
+                    <Users className="w-10 h-10 text-white bg-blue-400 px-2 py-1 rounded-lg" />
 
       </div>
 
       {/* Third Section means table */}
 
-        <table className="w-full px-5">
+        <div className="w-full py-3">
+
+        <table className="w-full rounded-lg gap-2 border border-gray-300 shadow-sm">
           <th className="flex justify-between px-5">
             <tr>STUDENT</tr>
             <tr>CONTACT INFO</tr>
             <tr>ADDRESS</tr>
             <tr>ACTIONS</tr>
           </th>
-          <tbody className="w-full flex justify-between">
+          <tbody className="flex justify-between px-5">
             <tr className="flex items-center gap-3 py-2 px-5">
               <img src="" alt="img" />
               <div className="flex flex-col">
@@ -68,7 +70,7 @@ function Students() {
           </tbody>
 
         </table>
-
+      </div>
     </div>
   )
 }
