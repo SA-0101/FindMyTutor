@@ -1,6 +1,47 @@
 import {Users} from "lucide-react"
+import { useEffect,useState } from "react"
 
 function Students() {
+
+    const BASE_URL= "http://localhost:8000/tutor"
+
+    const [studentsdata,setStudentsdata]=useState([])
+    const token = localStorage.getItem('token')
+    console.log(studentsdata)
+
+     const getStudents=async ()=> {
+         
+              try {
+                const response = await fetch(`${BASE_URL}/getAllStudents`,{
+                  method:"GET",
+                  headers:{
+                    'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                  }
+    
+                });
+                
+                const responsedata = await response.json();
+          
+                if (response.ok) {
+    
+                  setStudentsdata(responsedata);  // Store the fetched data in state
+    
+                }
+                else{
+                    alert(responsedata.message)
+                }
+    
+              } catch (error) {
+                console.error('Error:', error);
+              }
+            
+          }
+    
+            useEffect(()=>{
+              getStudents();
+        },[])
+
   return (
     <div className='w-full flex flex-col gap-8'>
             
