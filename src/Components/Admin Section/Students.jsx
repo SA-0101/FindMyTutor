@@ -9,6 +9,7 @@ function Students() {
     const token = localStorage.getItem('token')
     console.log(studentsdata)
 
+      {/* Getting Students */}
      const getStudents=async ()=> {
          
               try {
@@ -42,6 +43,33 @@ function Students() {
               getStudents();
         },[])
 
+      {/* Delete API Call */}
+
+      const deleteStudent = async (studentId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/deleteStudent/${studentId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      alert("Student deleted successfully");
+      getStudents(); // Re-fetch the student list after deletion
+    } else {
+      alert(responseData.message);
+    }
+  } catch (error) {
+    console.error("Delete error:", error);
+  }
+};
+
+
+
   return (
     <div className='w-full flex flex-col gap-8'>
             
@@ -68,9 +96,9 @@ function Students() {
       <div className="w-full flex justify-between items-center px-5 rounded-lg py-3 gap-2 border border-gray-300 shadow-sm">
                   <div className='flex flex-col items-center gap-2'>
 
-                      <div>
+                      <div className="flex flex-col items-center">
                         <h1 className='font-bold'>Total Students</h1>
-                        <h1>Student Array Length</h1>
+                        <h1>{studentsdata.length}</h1>
                       </div>
                     
                   </div>
@@ -81,44 +109,68 @@ function Students() {
 
       {/* Third Section means table */}
 
-        <div className="w-full py-3">
-          <table className="w-full rounded-lg gap-2 border border-gray-300 shadow-sm">
-            <th className="flex justify-between px-5">
-            <tr>STUDENT</tr>
-            <tr>CONTACT INFO</tr>
-            <tr>ADDRESS</tr>
-            <tr>ACTIONS</tr>
-          </th>
-        {
-          studentsdata.length===0 ? <div>No Students Found</div> : 
-           studentsdata.map((student,index)=>{
-          return <div key={index}> <tbody className="flex justify-between px-5">
-            <tr className="flex items-center gap-3 py-2 px-5">
-              <img className="w-10 h-10 rounded-[100%]" src={student.img} alt="img" />
-              <div className="flex flex-col">
-                <h1>{student.studentName}</h1>
-                <h1>Id#{index+1}</h1>
-              </div>
-            </tr>
-            <tr className="flex flex-col items-center">
-              <h1>{student.email}</h1>
-              <h1>{student.contact}</h1>
-            </tr>
-            <tr>
-              <h1>{student.address? student.address : "N/A"}</h1>
-            </tr>
-            <Trash2 size={24} color="red" />
-            
-          </tbody>
-               <hr className="border border-black"/>
-               </div>
+        <div className="py-3">
+  <table className="w-full border-collapse rounded-lg border border-gray-300 shadow-sm">
+    <thead className="bg-blue-200 text-left">
+      <tr className="grid grid-cols-[2fr_2fr_2fr_auto] gap-4 px-5 py-3 font-semibold text-gray-700">
+        <th>STUDENT</th>
+        <th>CONTACT INFO</th>
+        <th>ADDRESS</th>
+        <th>ACTIONS</th>
+      </tr>
+    </thead>
 
-           }) }
-        
-        </table>
-        
-        
-      </div>
+    <tbody>
+      {studentsdata.length === 0 ? (
+        <tr>
+          <td colSpan="4" className="text-center py-4">
+            No Students Found
+          </td>
+        </tr>
+      ) : (
+        studentsdata.map((student, index) => (
+          <tr
+            key={index}
+            className="grid grid-cols-[2fr_2fr_2fr_auto] gap-4 items-center px-5 py-4 border-t border-gray-200"
+          >
+            {/* STUDENT INFO */}
+            <td className="flex items-center gap-3">
+              <img
+                className="w-10 h-10 rounded-full object-cover"
+                src={student.img}
+                alt="student"
+              />
+              <div>
+                <h1 className="font-semibold">{student.studentName}</h1>
+                <h1 className="text-sm text-gray-500">ID#{index + 1}</h1>
+              </div>
+            </td>
+
+            {/* CONTACT INFO */}
+            <td className="flex flex-col">
+              <span>{student.email}</span>
+              <span>{student.contact}</span>
+            </td>
+
+            {/* ADDRESS */}
+            <td>{student.address ? student.address : "N/A"}</td>
+
+            {/* DELETE ACTION */}
+            <td className="flex justify-end">
+              <Trash2
+                size={24}
+                className="text-red-500 cursor-pointer hover:scale-110 transition"
+                onClick={()=>{deleteStudent(student._id)}}
+              />
+            </td>
+          </tr>
+        ))
+      )}
+    </tbody>
+  </table>
+</div>
+
+
     </div>
   )
 }

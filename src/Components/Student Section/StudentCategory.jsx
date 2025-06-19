@@ -139,7 +139,7 @@ function StudentCategory() {
       <div className='flex flex-1 flex-wrap gap-5'>
         {filteredTeachers.length > 0 ? (
           filteredTeachers.map((e) => (
-            <div key={e._id} className='flex flex-col flex-1 justify-center min-w-[300px] max-w-[400px] bg-white px-8 py-4 rounded-xl'>
+            <div key={e._id} className='flex flex-col flex-1 justify-center min-w-[300px] max-w-[400px] bg-white px-8 py-4 rounded-xl border border-gray-300 shadow-sm'>
 
               <div className='flex flex-col justify-center items-center gap-2'>
                 <img className='w-28 h-28 rounded-full' src={e.img} alt={e.name} />
