@@ -11,11 +11,11 @@ function TutorNotifications() {
     const [title,setTitle]=useState("")
     const [message,setMessage]=useState("")
     const [receiverId,setRecieverid]=useState("")
-    const [receivertype,setRecievertype]=useState("Student")
 
     const token= localStorage.getItem('token')
     const type= localStorage.getItem('type')
     const teacherId= localStorage.getItem('teacherId')
+    const receivertype= localStorage.getItem('receiverType')
 
 
     const getStudents=async ()=> {

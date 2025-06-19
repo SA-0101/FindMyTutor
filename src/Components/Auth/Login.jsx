@@ -84,6 +84,7 @@ function Login() {
           alert('✅ Tutor Login Successfully!');
           localStorage.setItem('token',data.token)
           localStorage.setItem('type',"Teacher")
+          localStorage.setItem('receiverType',"Student")
           localStorage.setItem('teacherId',data.teacher._id)
           localStorage.setItem('teacherName',data.teacher.teacherName)
           localStorage.setItem('teacherEmail',data.teacher.email)
