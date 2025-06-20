@@ -1,3 +1,4 @@
+import StarRating from './StarRating';
 import { useEffect,useState } from 'react';
 import heart from '../../assets/Icons/Heart.png';
 
@@ -177,7 +178,12 @@ function StudentCategory() {
                 <div className='flex flex-col justify-center items-center'>
                   <h1 className='text-xl font-semibold'>{e.teacherName}</h1>
                   <p className='font-semibold'>Tutor</p>
-                  <h1>{e.rating}({e.ratingCount})</h1>
+                {/*Div for Rating Starts */}
+            <div className="flex flex-col items-center">
+               <StarRating rating={e.rating} />
+                <p className="text-sm text-gray-500">({e.ratingCount} ratings)</p>
+            </div>
+
                 </div> 
               </div>
 
