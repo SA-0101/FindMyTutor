@@ -33,6 +33,7 @@ import AdminNotifications from './Components/Admin Section/AdminNotifications'
 import AdminSetting from './Components/Admin Section/AdminSetting'
 import SearchTeacher from './Components/Student Section/SearchTeacher'
 import ContactUs from './Components/Contact Us/ContactUs'
+import VisitTeacherProfile from './Components/Student Section/VisitTeacherProfile'
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
                   <Route path='Messages' element={<StudentMessages/>}/> 
                   <Route path='Notifications' element={<StudentNotifications/>}/> 
                   <Route path='Settings' element={<StudentSetting/>}/> 
+                  <Route path='VisitTeacherProfile' element={<VisitTeacherProfile/>}/> 
                   </Route>
 
                    {/* Tutor Nested Routing*/}

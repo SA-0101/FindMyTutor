@@ -1,6 +1,7 @@
 import StarRating from './StarRating';
 import { useEffect,useState } from 'react';
 import heart from '../../assets/Icons/Heart.png';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function StudentCategory() {
 
@@ -10,6 +11,7 @@ function StudentCategory() {
   const [teachersdata,setTeachersdata]=useState([])
   const [categorydata,setCategorydata]=useState([])
   console.log(categorydata)
+  const Navigate=useNavigate()
 
 
   const token=localStorage.getItem('token')
@@ -220,7 +222,7 @@ function StudentCategory() {
                  </div>
 
                  <div className='flex justify-between'>
-                  <button className='bg-[#1E90FF] text-white rounded-full px-10 py-1 text-xl'>Visit Profile</button>
+                  <button className='bg-[#1E90FF] text-white rounded-full px-10 py-1 text-xl' onClick={()=>{Navigate('VisitTeacherProfile')}}>Visit Profile</button>
                    <img src={heart} alt="heart icon" onClick={()=>{saveTeachers(e)}}/>
                   </div> 
                   
