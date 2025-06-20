@@ -1,6 +1,34 @@
 import {Bell} from 'lucide-react'
+import { useState } from 'react'
 
 function AdminNotifications() {
+
+      const BASE_URL="http://localhost:8000/tutor"
+      const token=localStorage.getItem('token')
+      const senderId=localStorage.getItem('adminId')
+      const senderType="Admin"
+      
+      const [receiverType,setReceivertype]=useState("Student")
+      const [title,setTitle]=useState("")
+      const [message,setMessage]=useState("")
+
+      const notificationData={
+        senderId:senderId,
+        senderType:senderType,
+        receiverId:  ""  ,
+        receiverType: receiverType ,
+        title:title,
+        message:message,
+      }
+
+      console.log(senderType)
+      console.log(senderId)
+      console.log(receiverType)
+      console.log(title)
+      console.log(message)
+    
+
+
   return (
     <div className="w-full flex flex-col justify-center items-center gap-7 py-5">
             <div className="flex flex-col items-center gap-3">
@@ -17,8 +45,8 @@ function AdminNotifications() {
                   <div className="w-full flex flex-col gap-2">
                     <h1>Send To</h1>
                     <div className="flex justify-between">
-                      <button className="bg-blue-100 border-2 border-blue-500 px-20 py-2 rounded-lg">Student</button>
-                      <button className="border-2 border-black px-20 py-2 rounded-lg">Teacher</button>
+                      <button className="bg-blue-100 border-2 border-blue-500 px-20 py-2 rounded-lg" value="Student" type='button' onClick={(e)=>{setReceivertype(e.target.value)}}>Student</button>
+                      <button className="border-2 border-black px-20 py-2 rounded-lg" value="Teacher" type='button' onClick={(e)=>{setReceivertype(e.target.value)}}>Teacher</button>
                     </div>
                   </div>
                   <div className="w-full flex flex-col gap-2">
@@ -32,13 +60,13 @@ function AdminNotifications() {
                   <div className="w-full flex flex-col gap-2">
                     <h1>Notification Title</h1>
                     <div className="w-full flex justify-between">
-                      <input className="w-full px-2 py-2 outline-0 border border-black rounded-lg" type="text" placeholder="Enter a clearmdescriptive title..."/>
+                      <input className="w-full px-2 py-2 outline-0 border border-black rounded-lg" type="text" placeholder="Enter a clearmdescriptive title..." onChange={(e)=>{setTitle(e.target.value)}}/>
                     </div>
                   </div>
                   <div className="w-full flex flex-col gap-2">
                     <h1>Message Content</h1>
                     <div className="w-full flex justify-between">
-                      <textarea className="w-full px-2 py-2 outline-0 border border-black rounded-lg" rows={5} name="" id="" placeholder="Write your detailed message here ..."></textarea>
+                      <textarea className="w-full px-2 py-2 outline-0 border border-black rounded-lg" rows={5} name="" id="" placeholder="Write your detailed message here ..." onChange={(e)=>{setMessage(e.target.value)}}></textarea>
                     </div>
                   </div>
                   <button className="w-full px-2 py-1 outline-0 rounded-lg bg-indigo-400">Send Notification</button>
