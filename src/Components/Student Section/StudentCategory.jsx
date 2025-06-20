@@ -159,7 +159,7 @@ function StudentCategory() {
          <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="All" onClick={(e)=>{setSubject(e.target.value)}}>All</button>
         {
             categorydata.map((category,index)=>{
-            return  <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value={category.name} onClick={(e)=>{setSubject(e.target.value)}}>{category.name}</button>
+            return  <button className='flex justify-center items-center cursor-pointer border border-blue-400 px-2 py-0.5 rounded-xl' value={category.name} onClick={(e)=>{setSubject(e.target.value)}}>{category.name}</button>
             })
         }
 
