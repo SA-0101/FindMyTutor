@@ -60,17 +60,17 @@ const handleSubmit = async (e) => {
                     <img className='w-24 h-24 rounded-[100%] bg-green-100 border-2 border-[#A5A5A5]' src="" alt="Profile" />
                 <div className='w-full flex flex-col gap-4'>
                     <input type="file" onChange={(e)=>{setImg(e.target.value)}}/>
-                    <input className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="" placeholder='Admin Name' onChange={(e)=>{setName(e.target.value)}}/>
-                    <input className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="email" placeholder='Email' onChange={(e)=>{setEmail(e.target.value)}}/>
-                    <input className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="number" placeholder='Contact' onChange={(e)=>{setContact(e.target.value)}}/>
-                    <input className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="text" placeholder='Address' onChange={(e)=>{setAddress(e.target.value)}}/>
+                    <input autoComplete="on" className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="" placeholder='Admin Name' onChange={(e)=>{setName(e.target.value)}}/>
+                    <input autoComplete="on" className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="email" placeholder='Email' onChange={(e)=>{setEmail(e.target.value)}}/>
+                    <input autoComplete="on" className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="number" placeholder='Contact' onChange={(e)=>{setContact(e.target.value)}}/>
+                    <input autoComplete="on" className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="text" placeholder='Address' onChange={(e)=>{setAddress(e.target.value)}}/>
 
                 </div>
 
                 <div className='w-full flex flex-col gap-1'>
                   
-                  <input className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="password" placeholder='Password' onChange={(e)=>{setPassword(e.target.value)}}/>
-                  <input className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="password" placeholder='New Password' onChange={(e)=>{setnewPassword(e.target.value)}}/>
+                  <input autoComplete="on" className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="password" placeholder='Password' onChange={(e)=>{setPassword(e.target.value)}}/>
+                  <input autoComplete="on" className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="password" placeholder='New Password' onChange={(e)=>{setnewPassword(e.target.value)}}/>
 
                 </div>
 

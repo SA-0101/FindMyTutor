@@ -119,6 +119,7 @@ function Login() {
           localStorage.setItem('token',data.token)
           localStorage.setItem('adminId',data.admin._id)
           localStorage.setItem('adminImg',data.admin.img)
+          console.log(localStorage.getItem('adminImg'))
           localStorage.setItem('adminName',data.admin.adminName)
           localStorage.setItem('adminEmail',data.admin.email)
           localStorage.setItem('adminAddress',data.admin.address)
