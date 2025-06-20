@@ -7,8 +7,9 @@ function StudentCategory() {
 
   const [subject, setSubject] = useState("All"); // Empty = all categories
   const [teachersdata,setTeachersdata]=useState([])
-  
-  console.log(teachersdata)
+  const [categorydata,setCategorydata]=useState([])
+  console.log(categorydata)
+
 
   const token=localStorage.getItem('token')
   const studentName=localStorage.getItem('studentname')
@@ -50,8 +51,41 @@ function StudentCategory() {
         
       }
 
+      {/* Get Category data */}
+
+      const getCategory=async ()=>{
+
+       try {
+                const response = await fetch(`${BASE_URL}/getAllCategories`,{
+                  method:"GET",
+                  headers:{
+                    'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                  }
+    
+                });
+                
+                const responsedata = await response.json();
+          
+                if (response.ok) {
+    
+                  setCategorydata(responsedata.categories);  // Store the fetched data in state
+
+                }
+                else{
+                    alert(responsedata.message)
+                }
+    
+              } catch (error) {
+                console.error('Error:', error);
+              }
+            
+          }
+
+
         useEffect(()=>{
           getTeachers();
+          getCategory();
     },[])
 
 
@@ -122,16 +156,13 @@ function StudentCategory() {
       <h1 className='text-2xl font-semibold'>All Categories</h1>
       <div className='flex flex-row flex-wrap gap-4 text-2xl font-semibold text-[#1E90FF]'>
         
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="All" onClick={(e)=>{setSubject(e.target.value)}}>All</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="Computer Science" onClick={(e)=>{setSubject(e.target.value)}}>CS</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="Mathematics" onClick={(e)=>{setSubject(e.target.value)}}>Mathematics</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="Chemistry" onClick={(e)=>{setSubject(e.target.value)}}>Chemistry</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="Biology" onClick={(e)=>{setSubject(e.target.value)}}>Biology</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="English" onClick={(e)=>{setSubject(e.target.value)}}>English</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="Physics" onClick={(e)=>{setSubject(e.target.value)}}>Physics</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="History" onClick={(e)=>{setSubject(e.target.value)}}>History</button>
-        <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="Art and Design" onClick={(e)=>{setSubject(e.target.value)}}>Art and Design</button>
-       
+         <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value="All" onClick={(e)=>{setSubject(e.target.value)}}>All</button>
+        {
+            categorydata.map((category,index)=>{
+            return  <button className='flex justify-center items-center border border-blue-400 px-2 py-0.5 rounded-xl' value={category.name} onClick={(e)=>{setSubject(e.target.value)}}>{category.name}</button>
+            })
+        }
+
       </div>
 
       {/* Profiles Section */}
