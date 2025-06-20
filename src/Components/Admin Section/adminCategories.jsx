@@ -23,7 +23,7 @@ function AdminCategories() {
         headers: {
     Authorization: `Bearer ${token}`,
       },
-        body: JSON.stringify(postCategory),
+        body: JSON.stringify(categoryData),
       });
 
       const data = await response.json();

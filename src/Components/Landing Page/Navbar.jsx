@@ -50,7 +50,6 @@ function Navbar() {
                   </NavLink>  
                     </button></li>
             </div>
-
            
         </ul>
     </nav>
