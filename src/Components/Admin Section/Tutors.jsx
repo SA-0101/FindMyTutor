@@ -121,7 +121,7 @@ function Tutors() {
               
                               <div className='flex gap-2 px-1 py-1'>
                                 <h1>🖂</h1>
-                                <h1>{teacher.email} Years</h1>
+                                <h1>{teacher.email}</h1>
                               </div>
                              <div className='flex gap-2 px-1 py-1'>
                                 <h1>📍</h1>
