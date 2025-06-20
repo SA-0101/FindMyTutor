@@ -23,7 +23,43 @@ function StudentSetting() {
         const [currPassword,setcurrPassword]=useState("");
         const [newPassword,setnewPassword]=useState("");
 
+      const handleSubmit = async (e) => {
+    e.preventDefault();
+
+  const formData = new FormData();
+
+            formData.append("img", img);
+            formData.append("studentName", studentName);
+            formData.append("email", email);
+            formData.append("contact", contact);
+            formData.append("address", address);
+            formData.append("currPassword", currPassword);
+            formData.append("newPassword", newPassword);
+
+    try {
+      const response = await fetch(`${BASE_URL}/updateStudentProfile`, {
+        method: "PUT",
+        headers: {
+
+           Authorization: `Bearer ${token}`,
+      },
+        body: formData,
+      });
+
+      const data = await response.json();
       
+      if(response.ok){
+        alert("Profile Updated successfully")
+        console.log(data);
+      }
+      else{
+        alert(data.error)
+      }
+     
+    } catch (error) {
+      console.error("Error uploading product:", error);
+    }
+  };
 
 
   return (
