@@ -16,7 +16,6 @@ function AdminNotifications() {
       const [receiverType,setReceivertype]=useState("")
       const [title,setTitle]=useState("")
       const [message,setMessage]=useState("")
-      const [bydefault,setbydefault]=useState("....Choose a Recipient....")
 
       console.log("senderType " + senderType)
       console.log("Senderid "+senderId)
@@ -98,7 +97,7 @@ function AdminNotifications() {
     const notificationData={
         senderId:senderId,
         senderType:senderType,
-        receiverId:  ""  ,
+        receiverId: receiverId ,
         receiverType: receiverType ,
         title:title,
         message:message,
@@ -157,7 +156,7 @@ function AdminNotifications() {
                     <div className="flex justify-between">
                      <select
                         className="w-full px-2 py-2 rounded-lg outline-0 border-[1px] border-black"
-                        value={bydefault}
+                        value={receiverId}
                         onChange={(e) => setRecieverid(e.target.value)}
                       >
                         <option value="" disabled>Select Student</option>
