@@ -78,7 +78,7 @@ function Tutors() {
             </div>
             <div className='bg-blue-500 flex flex-col items-center px-5 py-2 text-white rounded-lg border border-gray-300 shadow-sm'>
               <h1 className='font-semibold'>All Teachers</h1>
-              <h1>6</h1>
+              <h1>{teachersdata.length}</h1>
             </div>
             <div className='w-[300px] flex justify-center items-center gap-2 border border-black rounded-sm px-2 py-1'>
                 <FaSearch />
@@ -137,7 +137,7 @@ function Tutors() {
                           </div>
                         ))
                       ) : (
-                        <div className='text-lg text-gray-500'>No teachers found in this category.</div>
+                        <div className='w-full flex justify-center items-center py-2 text-lg text-gray-500'>No Teachers Found</div>
                       )}
                     </div>  
 
