@@ -23,6 +23,8 @@ function StudentSetting() {
         const [currPassword,setcurrPassword]=useState("");
         const [newPassword,setnewPassword]=useState("");
 
+      
+
 
   return (
     <div className='min-h-screen flex flex-col gap-6 justify-center items-center py-10 px-4'>
