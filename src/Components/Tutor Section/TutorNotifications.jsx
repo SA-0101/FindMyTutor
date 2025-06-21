@@ -7,7 +7,7 @@ function TutorNotifications() {
 
     const BASE_URL="http://localhost:8000/tutor"
     const [students,setStudents]=useState([])
-
+console.log(students)
     const [title,setTitle]=useState("")
     const [message,setMessage]=useState("")
     const [receiverId,setRecieverid]=useState("")
@@ -118,11 +118,10 @@ function TutorNotifications() {
                 <form onSubmit={handleSubmit} className="w-full flex flex-col gap-10 px-4 py-4 rounded-lg border border-gray-300 p-4 shadow-sm" action="">
 
                     <div className="flex flex-col gap-1">
-                      <label className="font-semibold" htmlFor="">Select Student</label>
-                      <select className="px-2 py-2 rounded-lg outline-0 border-[1px] border-black" value={bydefault} name="" id="" onChange={(e)=>{setRecieverid(e.target.value)}}>
+                      <select className="px-2 py-2 rounded-lg outline-0 border-[1px] border-black" value={receiverId} name="" id="" onChange={(e)=>{setRecieverid(e.target.value)}}>
                        <option value="" disabled>Select Student</option>
                       {
-                        students.length===0 ? <label htmlFor="">No student found</label> : 
+                        students.length===0 ? <option htmlFor="">No student found</option> : 
                         students.map((student,index)=>{
                           return <option key={index} value={student._id}>{student.studentName}</option>
                         })
