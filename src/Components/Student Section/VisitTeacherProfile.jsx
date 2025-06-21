@@ -10,8 +10,15 @@ function VisitTeacherProfile() {
        const { teacher } = location.state || {}; // fallback in case it's undefined
        const token=localStorage.getItem('token')
        const studentId =localStorage.getItem('studentId')
+       const [feedback,setFeedback]=useState("")
+       console.log(feedback)
        const teacherId=teacher._id
        const [rating, setRating] = useState(0);
+       console.log(teacherId)
+      
+    
+
+  const ratingAPI=async ()=>{
 
        const ratingData={
 
@@ -20,10 +27,6 @@ function VisitTeacherProfile() {
        rating:rating,
 
     }
-    console.log(ratingData)
-    
-
-    const ratingAPI=async ()=>{
 
     try {
     const response = await fetch(`${BASE_URL}/rateToRecommend`, {
@@ -38,6 +41,7 @@ function VisitTeacherProfile() {
     const responseData = await response.json();
 
     if (response.ok) {
+      alert("Rating submitted")
       console.log("Rating submitted successfully:", responseData);
 
     } else {
@@ -47,6 +51,39 @@ function VisitTeacherProfile() {
     console.error("Error submitting rating:", error);
   }
 };
+
+const feedbackAPI=async ()=>{
+
+  const feedbackData={
+        studentId:studentId,
+        teacherId:teacherId,
+        feedback:feedback,
+      }
+
+    try {
+    const response = await fetch(`${BASE_URL}/sendFeedback`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(feedbackData)
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      alert("feedback posted")
+      console.log("Feedback send successfully:", responseData);
+
+    } else {
+      console.error("Failed to send feedback:", responseData.message);
+    }
+  } catch (error) {
+    console.error("Error sending feedback:", error);
+  }
+};
+
 
 
   return (
@@ -107,7 +144,7 @@ function VisitTeacherProfile() {
       {[1, 2, 3, 4, 5].map((star) => (
         <span
           key={star}
-          onClick={() => {setRating(star),ratingAPI()}}
+          onChange={() => {setRating(star),ratingAPI()}}
           style={{
             fontSize: "24px",
             cursor: "pointer",
@@ -121,10 +158,10 @@ function VisitTeacherProfile() {
     </div>
 
               <h1 className="text-green-500">Thank you for rating this teacher!</h1>
-              <form className="w-full flex gap-2" action="">
-                <input className="w-full px-2 py-1 outline-0 border border-black rounded-lg" type="text" name="" id="" placeholder="Enter Your Feedback"/>
-                <button className="bg-blue-600 text-white font-semibold rounded-lg px-6 py-1">Send</button>
-              </form>
+              <div className="w-full flex gap-2" action="">
+                <input className="w-full px-2 py-1 outline-0 border border-black rounded-lg" type="text" name="" id="" placeholder="Enter Your Feedback" onChange={(e)=>setFeedback(e.target.value)}/>
+                <button className="bg-blue-600 text-white font-semibold rounded-lg px-6 py-1" onClick={()=>{feedbackAPI()}}>Send</button>
+              </div>
             </div>
             <div></div>
         </div>
