@@ -1,10 +1,53 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import StarRating from './StarRating';
 
 function VisitTeacherProfile() {
 
-        const location = useLocation();
-        const { teacher } = location.state || {}; // fallback in case it's undefined
-        console.log(teacher)
+      const BASE_URL="http://localhost:8000/tutor"
+
+       const location = useLocation();
+       const { teacher } = location.state || {}; // fallback in case it's undefined
+       const token=localStorage.getItem('token')
+       const studentId =localStorage.getItem('studentId')
+       const teacherId=teacher._id
+       const [rating, setRating] = useState(0);
+
+       const ratingData={
+
+       studentId:studentId,
+       teacherId:teacherId,
+       rating:rating,
+
+    }
+    console.log(ratingData)
+    
+
+    const ratingAPI=async ()=>{
+
+    try {
+    const response = await fetch(`${BASE_URL}/rateToRecommend`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(ratingData)
+    });
+
+    const responseData = await response.json();
+
+    if (response.ok) {
+      console.log("Rating submitted successfully:", responseData);
+
+    } else {
+      console.error("Failed to submit rating:", responseData.message);
+    }
+  } catch (error) {
+    console.error("Error submitting rating:", error);
+  }
+};
+
 
   return (
     <div className="flex flex-col gap-6 py-10">
@@ -47,7 +90,10 @@ function VisitTeacherProfile() {
                   <h1 className="font-semibold">{teacher.location}</h1>
                 </div>
                 <hr />
-                <h1>Rating star</h1>
+              <div className="flex items-center gap-3">
+                <StarRating rating={teacher.rating} />
+                <p className="text-sm text-gray-500">{teacher.rating}/5 Stars</p>
+              </div>
             </div>
 
           </div>
@@ -55,7 +101,25 @@ function VisitTeacherProfile() {
           <div className="w-full flex rounded-xl gap-16 px-5 py-8 border border-gray-300 shadow-sm">
             <div className="w-full flex flex-col gap-2">
               <h1 className="text-lg font-semibold">Rate this teacher</h1>
-              <h1>Stars</h1>
+              {/* Div for rating through Stars */}
+
+              <div className="flex space-x-1">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <span
+          key={star}
+          onClick={() => {setRating(star),ratingAPI()}}
+          style={{
+            fontSize: "24px",
+            cursor: "pointer",
+            color: star <= rating ? "gold" : "gray"
+          }}
+        >
+          ★
+        </span>
+      ))}
+      <p className="ml-2">Selected Rating: {rating}</p>
+    </div>
+
               <h1 className="text-green-500">Thank you for rating this teacher!</h1>
               <form className="w-full flex gap-2" action="">
                 <input className="w-full px-2 py-1 outline-0 border border-black rounded-lg" type="text" name="" id="" placeholder="Enter Your Feedback"/>
@@ -63,12 +127,6 @@ function VisitTeacherProfile() {
               </form>
             </div>
             <div></div>
-        </div>
-
-        <div className='w-full flex justify-center items-center'>
-              <NavLink to="/Student">
-                  <button className='cursor-pointer font-bold text-blue-500'>Go Back</button>
-              </NavLink>
         </div>
         
     </div>
