@@ -144,7 +144,7 @@ const feedbackAPI=async ()=>{
       {[1, 2, 3, 4, 5].map((star) => (
         <span
           key={star}
-          onChange={() => {setRating(star),ratingAPI()}}
+          onClick={() => {setRating(star),ratingAPI()}}
           style={{
             fontSize: "24px",
             cursor: "pointer",
