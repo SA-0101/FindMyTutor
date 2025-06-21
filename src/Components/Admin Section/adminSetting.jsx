@@ -32,6 +32,7 @@ const handleSubmit = async (e) => {
       const response = await fetch(`${BASE_URL}/updateAdminProfile`, {
         method: "PUT",
         headers: {
+          
     Authorization: `Bearer ${token}`,
       },
         body: formData,
@@ -57,7 +58,8 @@ const handleSubmit = async (e) => {
             <div className='w-[600px] flex flex-col px-5 py-5 gap-3 items-center rounded-lg border border-gray-300 shadow-sm'>
               <h1 className='text-xl font-bold'>Update Profile</h1>
               <form onSubmit={handleSubmit} action="" className='w-full flex flex-col justify-center items-center gap-4'>
-                    <img className='w-24 h-24 rounded-[100%] bg-green-100 border-2 border-[#A5A5A5]' src="" alt="Profile" />
+                    <img className='w-24 h-24 rounded-[100%] bg-green-100 border-2 border-[#A5A5A5]' src="null
+                    " alt="Profile" />
                 <div className='w-full flex flex-col gap-4'>
                     <input type="file" onChange={(e)=>{setImg(e.target.value)}}/>
                     <input autoComplete="on" className='w-full px-2 py-1 outline-0 border border-[#A5A5A5] rounded-sm' type="" placeholder='Admin Name' onChange={(e)=>{setName(e.target.value)}}/>
