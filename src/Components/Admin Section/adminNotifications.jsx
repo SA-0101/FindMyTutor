@@ -159,11 +159,13 @@ function AdminNotifications() {
                         value={receiverId}
                         onChange={(e) => setRecieverid(e.target.value)}
                       >
-                        <option value="" disabled>Select Student</option>
+                        {
+                          receiverType==="Student" ? <option value="" disabled>Select Student</option> : <option value="" disabled>Select Teacher</option>
+                        }
 
                         {receiverType === "Student" ? (
                           studentsdata.length === 0 ? (
-                            <option disabled>No student found</option> // ✅ Use option instead of label
+                            <option disabled>No student found</option>
                           ) : (
                             studentsdata.map((student, index) => (
                               <option key={index} value={student._id}>
@@ -171,9 +173,12 @@ function AdminNotifications() {
                               </option>
                             ))
                           )
-                        ) : teachersdata.length === 0 ? (
+                        ) 
+                         : teachersdata.length === 0 ? (
                           <option disabled>No teacher found</option>
-                        ) : (
+                        ) :
+                          
+                        (
                           teachersdata.map((teacher, index) => (
                             <option key={index} value={teacher._id}>
                               {teacher.teacherName}
