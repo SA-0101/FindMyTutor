@@ -1,5 +1,5 @@
 import { useEffect,useState } from 'react';
-import heart from '../../assets/Icons/Heart.png';
+import StarRating from './StarRating';
 import { FaTrash } from "react-icons/fa";
 
 function SavedTeachers() {
@@ -51,12 +51,6 @@ function SavedTeachers() {
 
     {/*Save Teacher API call */}
       const deletesavedTeacher=async (teacher)=> {
-
-    // const removeTeacherData={
-
-    //   teacherId:  teacher._id ,
-
-    // }
      
           try {
             const response = await fetch(`${BASE_URL}/removeSaveTeacher/${teacher._id}`,{
@@ -112,7 +106,10 @@ function SavedTeachers() {
                 <div className='flex flex-col justify-center items-center'>
                   <h1 className='text-xl font-semibold'>{e.teacherName}</h1>
                   <p className='font-semibold'>Tutor</p>
-                  <h1>{e.rating}</h1>
+                   <div className="flex flex-col items-center">
+               <StarRating rating={e.rating} />
+                <p className="text-sm text-gray-500">({e.rating})</p>
+            </div>
                 </div> 
               </div>
 

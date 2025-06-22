@@ -2,6 +2,7 @@
 function StudentMessages() {
  return( 
     <>
+    Student message
     </>
   );
 }
