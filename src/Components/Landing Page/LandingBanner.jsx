@@ -6,7 +6,7 @@ function LandingBanner() {
             <div className=' w-[40%]  pl-12 flex flex-col justify-start items-center'>
            
             <div className='flex flex-col gap-2'>
-            <h1 className='text-4xl text-white font-bold'>Find Qualified <span className='text-[#1E90FF]'>Teachers</span></h1>
+            <h1 className='text-4xl text-white font-bold'>Find Qualified <span className='text-4xl text-[#1E90FF] font-bold'>Teachers</span></h1>
             <h1 className='text-4xl text-white font-bold'>for Every Subject</h1>
             <h2 className='text-white'>Easily connect with expert educators for personalized learning solutions</h2>
             
