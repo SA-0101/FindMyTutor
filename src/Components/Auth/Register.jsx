@@ -117,7 +117,7 @@ function Register() {
               <h1 className='text-xl md:text-2xl font-bold py-1 md:py-3'>Create Account</h1>
               <div className='w-full flex flex-col gap-2 py-3'>
                 <h1 className='flex flex-col font-semibold'>I am a:</h1>
-                  <div className='w-full flex flex-col px-3 py-0 md:py-1 gap-2 md:gap-3 lg:gap-5 lg:flex lg:flex-row basis-1 lg:flex-wrap lg:justify-center lg:items-center'>
+                  <div className='w-full flex flex-col md:flex md:flex-row basis-1 gap-4 md:flex-wrap md:justify-center md:items-center'>
                     <div className={`flex flex-col items-center rounded-lg ${studentbg} px-1 py-1 md:px-6 md:py-2 lg:px-8 lg:py-2 border-2 border-gray-200`} onClick={() => {setStudentbg('bg-blue-100');setTeacherbg('bg-white');setTeacherapi(false);setStudentapi(true)}}>
                       <BookOpen className="w-5 h-5" />
                       <h1>Student</h1>

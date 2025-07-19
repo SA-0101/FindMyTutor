@@ -142,7 +142,7 @@ function ForgetPass() {
               
               <div className='w-full flex flex-col gap-2 py-3'>
                 <h1 className='flex flex-col font-semibold'>Account type:</h1>
-                  <div className='w-full flex basis-1 py-0 md:py-1 gap-2 md:gap-3 lg:gap-5 flex-wrap justify-center  items-center'>
+                  <div className='w-full flex flex-col md:flex md:flex-row basis-1 gap-4 md:flex-wrap md:justify-center md:items-center'>
                     <div className={`flex flex-col items-center cursor-pointer hover:scale-[103%] rounded-lg ${studentbg} px-3 md:px-8 py-1 md:py-2 border-2 border-gray-200`} onClick={() => {setStudentbg('bg-blue-100');setTeacherbg('bg-white');setAdminbg('bg-white');setTeacherapi(false);setStudentapi(true);setAdminapi(false)}}>
                       <BookOpen className="w-5 h-5" />
                       <h1>Student</h1>
