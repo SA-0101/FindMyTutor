@@ -136,7 +136,7 @@ function ForgetPass() {
                     <Mail className="h-5 w-5 text-gray-400" />
               </div>
               <div className='flex flex-col justify-center items-center py-1 md:py-2'>
-                  <h1 className='text-2xl font-bold py-1 md:py-3'>Forgot Password?</h1>
+                  <h1 className='text-center text-2xl font-bold py-1 md:py-3'>Forgot Password?</h1>
                   <h1 className='text-sm'>No worries! Enter your email and we'll send you a reset code.</h1>
               </div>
               
