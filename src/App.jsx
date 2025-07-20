@@ -13,6 +13,8 @@ import StudentCategory from './Components/Student Section/StudentCategory'
 import NearbyTeachers from '../src/Components/Student Section/NearbyTeachers'
 import SavedTeachers from '../src/Components/Student Section/SavedTeachers'
 import StudentMessages from './Components/Student Section/StudentMessages'
+import StudentChatFront from './Components/Student Section/StudentChatFront'
+import Chat from './Components/Student Section/Chat'
 import StudentNotifications from './Components/Student Section/StudentNotifications'
 import StudentSetting from './Components/Student Section/StudentSetting'
 
@@ -20,6 +22,8 @@ import Tutor from '../src/Components/Tutor Section/Tutor'
 import TutorHome from './Components/Tutor Section/TutorHome'
 import ProfileOverview from '../src/Components/Tutor Section/ProfileOverview'
 import TutorMessages from './Components/Tutor Section/TutorMessages'
+import ChatFrontPage from './Components/Tutor Section/ChatFrontPage'
+import Messages from './Components/Tutor Section/Messages'
 import TutorNotifications from './Components/Tutor Section/TutorNotifications'
 import TutorFeedback from './Components/Tutor Section/TutorFeedback'
 import TutorSetting from './Components/Tutor Section/TutorSetting'
@@ -60,7 +64,10 @@ function App() {
                   <Route path='SearchTeachers' element={<SearchTeacher/>}/>
                   <Route path='NearbyTeachers' element={<NearbyTeachers/>}/>
                   <Route path='SavedTeachers' element={<SavedTeachers/>}/> 
-                  <Route path='Messages' element={<StudentMessages/>}/> 
+                  <Route path='Messages' element={<StudentMessages/>}>
+                      <Route index element={<StudentChatFront />} />
+                      <Route path="student-chat/:tutorId" element={<Chat />} />
+                   </Route> 
                   <Route path='Notifications' element={<StudentNotifications/>}/> 
                   <Route path='Settings' element={<StudentSetting/>}/> 
                   <Route path='VisitTeacherProfile' element={<VisitTeacherProfile/>}/> 
@@ -70,7 +77,10 @@ function App() {
                   <Route path='/Tutor' element={<Tutor/>}>
                   <Route index element={<TutorHome/>}/>
                   <Route path='ProfileOverview' element={<ProfileOverview/>}/>
-                  <Route path='Messages' element={<TutorMessages/>}/>
+                  <Route path='Messages' element={<TutorMessages/>}>
+                        <Route index element={<ChatFrontPage />} />
+                        <Route path="tutor-chat/:studentId" element={<Messages />} />
+                  </Route>
                   <Route path='Notifications' element={<TutorNotifications/>}/> 
                   <Route path='Feedback' element={<TutorFeedback/>}/> 
                   <Route path='Settings' element={<TutorSetting/>}/> 

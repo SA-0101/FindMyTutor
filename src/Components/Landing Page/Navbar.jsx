@@ -1,11 +1,14 @@
 import { NavLink } from 'react-router-dom'
+import { Menu } from 'lucide-react';
 
 function Navbar() {
   return (
     <nav className='flex relative top-0 max-w-full bg-[#252525] justify-between items-center gap-10 px-14 py-3'>
-        <div className='text-[25px] text-white font-semibold'>Logo</div>
+        <div className='text-[25px] text-white font-semibold '>Logo</div>
+        
         <ul className='flex flex-wrap w-[950px] h-[56px] justify-between items-center text-white text-[15px]'>
             <div className='hidden lg:block lg:w-8 lg:h-8 lg:rounded-full lg:border-orange-500 lg:border-[6px] lg:bg-[#252525]'></div>
+          
             <li className='hidden md:block md:hover:text-green-500'>
               <a href="#Home">
               Home
