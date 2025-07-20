@@ -44,7 +44,8 @@ function Tutor() {
 
 
       <NavLink
-        to=""
+        to="."
+        end
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"

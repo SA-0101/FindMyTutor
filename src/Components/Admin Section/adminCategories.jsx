@@ -66,7 +66,7 @@ function AdminCategories() {
       const data = await response.json();
       
       if(response.ok){
-        alert("Profile Updated successfully")
+        alert("Category Added successfully")
         console.log(data);
       }
       else{

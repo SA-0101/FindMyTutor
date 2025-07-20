@@ -110,7 +110,6 @@ function Admin() {
           <h1>Update Profile</h1>
       </div>
       </NavLink>
-
       
         <div className="flex px-4 py-2 text-red-600 font-bold cursor-pointer gap-3 w-full items-start">
           <RiLogoutBoxRLine  size={20} />
