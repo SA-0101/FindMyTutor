@@ -97,7 +97,7 @@ function Messages() {
           <img
             src={
               profile.img
-                ? `http://localhost:8000/${profile.img}`
+                ? `${profile.img}`
                 : "../profile.png"
             }
             alt="Profile"

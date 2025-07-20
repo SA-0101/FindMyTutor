@@ -422,7 +422,7 @@ function TutorMessages() {
               <img
                 src={
                   student.img
-                    ? `http://localhost:8000/${student.img}`
+                    ? `${student.img}`
                     : "profile.png"
                 }
                 alt={student.name}

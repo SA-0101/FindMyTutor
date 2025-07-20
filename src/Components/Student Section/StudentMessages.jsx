@@ -274,7 +274,7 @@ function StudentMessages() {
   const [teachers, setTeachers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-   
+
 
   // Fetch students using fetch API
   useEffect(() => {
@@ -310,7 +310,7 @@ function StudentMessages() {
   const filteredTeachers = teachers.filter((teacher) =>
     (teacher.teacherName || "").toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+console.log(filteredTeachers)
   return (
     <div className=" w-[78%] flex max-h-screen overflow-y-auto  bg-gray-100 ">
       {/* Sidebar */}
@@ -335,7 +335,7 @@ function StudentMessages() {
               <img
                 src={
                   teacher.img
-                    ? `http://localhost:8000/${teacher.img}`
+                    ? `${teacher.img}`
                     : "profile.png"
                 }
                 alt={teacher.teacherName}

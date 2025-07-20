@@ -11,7 +11,7 @@ function Chat() {
   const studentId = localStorage.getItem("studentId");
   const navigate = useNavigate();
   const roomId = [studentId, tutorId].sort().join("_");
-
+console.log(profile)
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
@@ -88,7 +88,7 @@ function Chat() {
           <img
             src={
               profile.img
-                ? `http://localhost:8000/${profile.img}`
+                ? `${profile.img}`
                 : "/profile.png"
             }
             alt="Profile"
