@@ -143,12 +143,12 @@ function Register() {
                 
                <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                      <Lock className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Password' className='w-full outline-0 px-3 py-1 md:py-3' onChange={(e)=>{setPassword(e.target.value)}}/>
+                    <input type="password" placeholder='Password' className='w-full outline-0 px-3 py-1 md:py-3' onChange={(e)=>{setPassword(e.target.value)}}/>
               </div>
 
               <div className='w-full flex justify-between items-center px-2 rounded-lg border border-gray-300 bg-gray-100'>
                      <Lock className="h-5 w-5 text-gray-400" />
-                    <input type="text" placeholder='Conform Password' className='w-full outline-0 px-3 py-1 md:py-3' onChange={(e)=>{setConfirmpass(e.target.value)}}/>
+                    <input type="password" placeholder='Conform Password' className='w-full outline-0 px-3 py-1 md:py-3' onChange={(e)=>{setConfirmpass(e.target.value)}}/>
               </div>
 
                 <button type='submit' className='bg-blue-600 w-full py-1 md:py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-blue-700'>Create Account</button>
