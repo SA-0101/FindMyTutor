@@ -69,14 +69,13 @@ function App() {
                       <Route path="student-chat/:tutorId" element={<Chat />} />
                    </Route> 
                   <Route path='Notifications' element={<StudentNotifications/>}/> 
-                  <Route path='Settings' element={<StudentSetting/>}/> 
+                  <Route path='UpdateProfile' element={<StudentSetting/>}/> 
                   <Route path='VisitTeacherProfile' element={<VisitTeacherProfile/>}/> 
                   </Route>
 
                    {/* Tutor Nested Routing*/}
                   <Route path='/Tutor' element={<Tutor/>}>
-                  <Route index element={<TutorHome/>}/>
-                  <Route path='ProfileOverview' element={<ProfileOverview/>}/>
+                  <Route index element={<ProfileOverview/>}/>
                   <Route path='Messages' element={<TutorMessages/>}>
                         <Route index element={<ChatFrontPage />} />
                         <Route path="tutor-chat/:studentId" element={<Messages />} />
@@ -88,12 +87,11 @@ function App() {
 
                    {/* Admin Nested Routing*/}
                   <Route path='/Admin' element={<Admin/>}>
-                  <Route index element={<AdminHome/>}/>
-                  <Route path='Categories' element={<AdminCategories/>}/>
+                  <Route index element={<AdminCategories/>}/>
                   <Route path='Students' element={<Students/>}/>
                   <Route path='Tutors' element={<Tutors/>}/> 
                   <Route path='Notifications' element={<AdminNotifications/>}/> 
-                  <Route path='Settings' element={<AdminSetting/>}/> 
+                  <Route path='updateprofile' element={<AdminSetting/>}/> 
                   </Route>
 
                 </Routes>

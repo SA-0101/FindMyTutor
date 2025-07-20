@@ -2,7 +2,6 @@ import { MdForwardToInbox } from "react-icons/md";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import { FiSearch } from "react-icons/fi";
 import { NavLink, Outlet } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 // import Notfound from '../Not Found/Notfound';
@@ -42,23 +41,8 @@ function Admin() {
                    
                     <nav className='flex w-full px-8 flex-col gap-2'>
 
-                    <NavLink
-        to="."
-        end
-        className={({ isActive }) =>
-          `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
-            isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
-          }`
-        }
-      >   
-      <div className="flex gap-3 w-full items-start">
-          <h1>🏠</h1>
-          <h1>Home</h1>
-      </div>
-      </NavLink>
-
       <NavLink
-        to="Categories"
+        to=""
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
@@ -114,7 +98,7 @@ function Admin() {
       </NavLink>
 
         <NavLink
-        to="Settings"
+        to="updateprofile"
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
@@ -122,8 +106,8 @@ function Admin() {
         }
       >
          <div className="flex gap-3 w-full items-start">
-          <h1>⚙️</h1>
-          <h1>Settings</h1>
+          <h1>✏️</h1>
+          <h1>Update Profile</h1>
       </div>
       </NavLink>
 

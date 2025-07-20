@@ -42,23 +42,9 @@ function Tutor() {
                    
                     <nav className='flex w-full px-8 flex-col gap-2'>
 
-                    <NavLink
-        to="."
-        end
-        className={({ isActive }) =>
-          `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
-            isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
-          }`
-        }
-      >   
-      <div className="flex gap-3 w-full items-start">
-          <h1>🏠</h1>
-          <h1>Home</h1>
-      </div>
-      </NavLink>
 
       <NavLink
-        to="ProfileOverview"
+        to=""
         className={({ isActive }) =>
           `flex text-[#A5A5A5] items-center w-full py-2 px-4 rounded-full ${
             isActive ? "text-[#ffffff] bg-[#1E90FF]" : "hover:bg-gray-100"
