@@ -218,11 +218,11 @@ function OtpVerification() {
         <div className='flex flex-col justify-between gap-4 py-5 items-center overflow-y-hidden  max-w-full min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
 
             <div className='flex flex-col items-center gap-2'>
-              <div className='flex justify-center items-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-full w-16 h-16'>
-                  <GraduationCap className="w-8 h-8 text-white" />
+              <div className='flex justify-center items-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-full w-12 h-12 md:w-16 md:h-16'>
+                  <GraduationCap className="w-7 h-7 md:w-8 md:h-8 text-white" />
               </div>
               
-              <h1 className='text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>FindMyTutor</h1>
+              <h1 className='text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>FindMyTutor</h1>
               <h1>Verify your identity</h1>
             </div>
 
@@ -230,9 +230,9 @@ function OtpVerification() {
               <div className='flex justify-center items-center w-10 h-10 rounded-[100%] bg-green-200'>
                     <KeyRound className="w-6 h-6 text-green-600" />
               </div>
-              <div className='flex flex-col justify-center items-center py-2'>
-                  <h1 className='text-2xl font-bold py-3'>Verify OTP</h1>
-                  <h1 className='text-sm'>Enter the 6-digit code sent to your email</h1>
+              <div className='flex flex-col justify-center items-center'>
+                  <h1 className='text-xl md:text-2xl font-bold py-1 md:py-3'>Verify OTP</h1>
+                  <h1 className='text-sm text-center'>Enter the 6-digit code sent to your email</h1>
               </div>
               
               <div className='w-full flex flex-col gap-2 py-3'>
@@ -263,9 +263,9 @@ function OtpVerification() {
                 <button type='submit' className='bg-green-500 w-full py-1 md:py-3 text-white font-semibold rounded-lg cursor-pointer hover:scale-[102%] hover:bg-green-600'>Verify Code</button>
               </form>
              
-             <div className='flex justify-center items-center gap-1'>
+             <div className='flex py-2 flex-col md:flex-row md:justify-center md:items-center'>
                     <label htmlFor="">Didn't receive the code?</label>
-                   <button className='py-3 text-green-500 font-semibold cursor-pointer' onClick={()=>{Forgetpassword()}}>Resend OTP</button>
+                   <button className='py-1 text-green-500 font-semibold cursor-pointer' onClick={()=>{Forgetpassword()}}>Resend OTP</button>
               </div>
 
                 <hr className='border-s border-gray-300 w-full'/>
